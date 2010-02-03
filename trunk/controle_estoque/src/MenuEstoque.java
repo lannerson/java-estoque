@@ -342,7 +342,7 @@ data mostra_data = new data();
     }//GEN-LAST:event_sairIconeActionPerformed
 
     private void cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cidadeActionPerformed
-         new cad_cidade().show();       // TODO add your handling code here:
+         new cliente().show();       // TODO add your handling code here:
     }//GEN-LAST:event_cidadeActionPerformed
 
     private void clenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clenteActionPerformed
