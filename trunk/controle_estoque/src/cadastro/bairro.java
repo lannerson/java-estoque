@@ -487,7 +487,7 @@ else
                 int conseguiu_excluir = con_bairro.statement.executeUpdate(sql);
                 if (conseguiu_excluir == 1)
 {
-                    JOptionPane.showMessageDialog(null,"Exclusão realizada com sucesso");
+                    JOptionPane.showMessageDialog(null,"Exclusao realizada com sucesso");
                     con_bairro.executaSQL("Select * from bairro order by "+ordenacao);
                     atualizaComboBox();
                     con_bairro.resultset.first();
@@ -696,7 +696,7 @@ catch(SQLException erro)
         if(navega==0)
             JOptionPane.showMessageDialog(null,"voce ja esta nu primeiro registro");
         else
-            JOptionPane.showMessageDialog(null,"dados não localizados"+erro);
+            JOptionPane.showMessageDialog(null,"dados nao localizados"+erro);
 }
         
         
