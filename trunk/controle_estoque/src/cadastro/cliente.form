@@ -32,173 +32,163 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jl_complemento" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jPanel1" min="-2" max="-2" attributes="1"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jl_complemento" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tf_complemento" min="-2" pref="49" max="-2" attributes="1"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="1">
+                                      <Component id="botao_primeiro_registro" min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="botao_registro_anterior" min="-2" pref="41" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="botao_registro_frente" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                                      <Component id="botao_ultimo_registro" min="-2" pref="48" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane2" alignment="0" min="-2" pref="581" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tf_complemento" min="-2" pref="49" max="-2" attributes="1"/>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="581" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="botao_incluir" min="-2" pref="57" max="-2" attributes="0"/>
-                      <EmptySpace pref="421" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                      <Component id="botao_gravar" min="-2" pref="55" max="-2" attributes="0"/>
-                      <EmptySpace pref="147" max="32767" attributes="0"/>
-                      <Component id="botao_alterar" min="-2" pref="60" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="botao_excluir" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="botao_impressao" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="botao_impressao1" min="-2" pref="85" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
-              <Component id="botao_primeiro_registro" min="-2" pref="48" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="botao_registro_anterior" min="-2" pref="41" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="botao_registro_frente" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="botao_ultimo_registro" min="-2" pref="48" max="-2" attributes="0"/>
-              <EmptySpace pref="473" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="1"/>
-              <EmptySpace pref="464" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="1">
-                      <Component id="jl_endereco" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="tf_CodLog" max="32767" attributes="1"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jL_codigo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="tf_codigo" min="-2" pref="43" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="tf_nome" pref="354" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="cb_endereco" min="-2" pref="311" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jl_numero" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="tf_numero" min="-2" pref="28" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jl_bairro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="tf_bairro" pref="85" max="32767" attributes="1"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="cb_bairro" min="-2" pref="206" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jl_cidade" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="tf_cidade" min="-2" pref="24" max="-2" attributes="1"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="cb_cidade" min="-2" pref="206" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jl_cep" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="tf_cep" min="-2" pref="49" max="-2" attributes="1"/>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jl_foneRes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="tf_foneRes" pref="38" max="32767" attributes="1"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jl_cpf1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tf_cpf1" min="-2" pref="117" max="-2" attributes="1"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jl_dataNascimento" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="tf_dataNascimento" min="-2" pref="81" max="-2" attributes="1"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jl_rg" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="tf_rg" pref="123" max="32767" attributes="1"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jl_cpf" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tf_cpf" min="-2" pref="117" max="-2" attributes="1"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jl_dataNascimento1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="tf_dataNascimento1" pref="35" max="32767" attributes="1"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="1">
+                                  <Component id="jl_endereco" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="tf_CodLog" max="32767" attributes="1"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jL_codigo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="tf_codigo" min="-2" pref="43" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="tf_nome" pref="390" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="cb_endereco" min="-2" pref="311" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jl_numero" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="tf_numero" min="-2" pref="54" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jl_bairro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="tf_bairro" pref="154" max="32767" attributes="1"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="cb_bairro" min="-2" pref="206" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jl_cidade" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tf_cidade" min="-2" pref="24" max="-2" attributes="1"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cb_cidade" min="-2" pref="206" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jl_cep" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="tf_cep" min="-2" pref="49" max="-2" attributes="1"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jl_foneRes" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="tf_foneRes" pref="82" max="32767" attributes="1"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jl_FoneCom" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tf_FoneCom" min="-2" pref="117" max="-2" attributes="1"/>
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jl_FoneCel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="tf_FoneCel" min="-2" pref="81" max="-2" attributes="1"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jl_rg" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="tf_rg" pref="98" max="32767" attributes="1"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jl_cpf" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tf_cpf" min="-2" pref="117" max="-2" attributes="1"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jl_dataNascimento" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="tf_dataNascimento" min="-2" pref="104" max="-2" attributes="1"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jL_email" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="tf_email" min="-2" pref="141" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="jL_dataCadastro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="tf_dataCadastro" min="-2" pref="106" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jL_observacao" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="tf_observacao" min="-2" pref="395" max="-2" attributes="0"/>
+                          <EmptySpace pref="376" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jL_foto" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="tf_foto" min="-2" pref="143" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="609" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="botao_incluir" min="-2" pref="57" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="botao_gravar" min="-2" pref="55" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="botao_excluir" min="-2" pref="63" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="botao_alterar" min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="botao_impressao" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="botao_impressao1" min="-2" pref="68" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_email" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="tf_email" min="-2" pref="43" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jL_dataCadastro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="tf_dataCadastro" min="-2" pref="88" max="-2" attributes="0"/>
-              <EmptySpace pref="493" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_observacao" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="tf_observacao" min="-2" pref="395" max="-2" attributes="0"/>
-              <EmptySpace pref="340" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_observacao1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="tf_observacao1" min="-2" pref="143" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="590" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -208,8 +198,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel3" min="-2" max="-2" attributes="1"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" pref="69" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jL_codigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_codigo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -243,24 +233,24 @@
                   <Component id="tf_rg" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jl_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jl_dataNascimento1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tf_dataNascimento1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_dataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_dataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jl_foneRes" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_foneRes" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tf_cpf1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jl_cpf1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jl_dataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tf_dataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_FoneCom" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_FoneCom" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_FoneCel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_FoneCel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jL_email" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tf_email" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jL_dataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tf_dataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_dataCadastro" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -269,45 +259,46 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jL_observacao1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tf_observacao1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_foto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tf_foto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" alignment="1" min="-2" pref="112" max="-2" attributes="1"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                  </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="botao_registro_frente" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botao_primeiro_registro" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botao_registro_anterior" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botao_ultimo_registro" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="botao_incluir" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botao_alterar" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botao_excluir" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botao_gravar" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="botao_impressao" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="1"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="105" max="-2" attributes="1"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="botao_primeiro_registro" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="botao_registro_frente" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="botao_registro_anterior" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="botao_excluir" max="32767" attributes="1"/>
+                          <Component id="botao_impressao1" min="0" pref="0" max="32767" attributes="1"/>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="botao_incluir" alignment="0" max="32767" attributes="1"/>
+                              <Component id="botao_gravar" alignment="0" max="32767" attributes="1"/>
+                              <Component id="botao_alterar" alignment="0" max="32767" attributes="1"/>
+                              <Component id="botao_impressao" alignment="0" max="32767" attributes="1"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="botao_ultimo_registro" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botao_impressao1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -456,28 +447,31 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="tf_pesquisa" min="-2" pref="137" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jcb_pesquisar" min="-2" pref="131" max="-2" attributes="1"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="17" max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tf_pesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcb_pesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="tf_pesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jcb_pesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace pref="10" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -520,14 +514,17 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jtb_cidades">
+        <Component class="javax.swing.JTable" name="jtb_cliente">
           <Properties>
             <Property name="autoCreateRowSorter" type="boolean" value="true"/>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="4">
-                <Column editable="true" title="CODIGO" type="java.lang.Object"/>
-                <Column editable="true" title="NOME" type="java.lang.Object"/>
-                <Column editable="true" title="UF" type="java.lang.Object"/>
+              <Table columnCount="6" rowCount="4">
+                <Column editable="true" title="Codigo" type="java.lang.Object"/>
+                <Column editable="true" title="Nome" type="java.lang.Object"/>
+                <Column editable="true" title="Fone Res." type="java.lang.Object"/>
+                <Column editable="true" title="Fone Com." type="java.lang.Object"/>
+                <Column editable="true" title="Fone Cel." type="java.lang.Object"/>
+                <Column editable="true" title="E-mail" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="autoResizeMode" type="int" value="1"/>
@@ -539,7 +536,7 @@
               <Value id="INSERT"/>
             </Property>
             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" id="ToolBar.dockingForeground" palette="3" red="ff" type="palette"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
@@ -731,7 +728,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value=" Endereco.:"/>
+        <Property name="text" type="java.lang.String" value="Bairro.:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tf_bairro">
@@ -822,6 +819,22 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_rgActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JTextField" name="tf_FoneCel">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="digite o nome da cidade"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_FoneCelActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jl_FoneCel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Fone Cel.:"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JTextField" name="tf_dataNascimento">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="digite o nome da cidade"/>
@@ -831,22 +844,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jl_dataNascimento">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Fone Cel.:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tf_dataNascimento1">
-      <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="digite o nome da cidade"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_dataNascimento1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jl_dataNascimento1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
@@ -870,7 +867,7 @@
         <Property name="text" type="java.lang.String" value=" Fone Res.:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jl_cpf1">
+    <Component class="javax.swing.JLabel" name="jl_FoneCom">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
@@ -878,12 +875,12 @@
         <Property name="text" type="java.lang.String" value="Fone Comercial.:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_cpf1">
+    <Component class="javax.swing.JTextField" name="tf_FoneCom">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="digite o nome da cidade"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_cpf1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_FoneComActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_email">
@@ -934,7 +931,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_observacaoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jL_observacao1">
+    <Component class="javax.swing.JLabel" name="jL_foto">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
@@ -942,12 +939,12 @@
         <Property name="text" type="java.lang.String" value="Foto.:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_observacao1">
+    <Component class="javax.swing.JTextField" name="tf_foto">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="digite o nome da cidade"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_observacao1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_fotoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
@@ -971,7 +968,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="botao_impressao1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="relatorios"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/botoes/relatorio3.jpg"/>
+        </Property>
         <Property name="toolTipText" type="java.lang.String" value="exclui um registro"/>
       </Properties>
       <Events>
