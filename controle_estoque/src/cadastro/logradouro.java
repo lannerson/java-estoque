@@ -447,7 +447,7 @@ else
             String sql = "UPDATE logradouro SET nome = '"+tf_nome.getText()+"',"+
                     "' where codigo = "+tf_codigo.getText();
             con_logradouro.statement.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "Alteração realizada com sucesso!");
+            JOptionPane.showMessageDialog(null, "Alteracao realizada com sucesso!");
             
             //atualiza tela
             con_logradouro.executaSQL("Select * from logradouro order by "+ordenacao);
@@ -481,7 +481,7 @@ else
                 int conseguiu_excluir = con_logradouro.statement.executeUpdate(sql);
                 if (conseguiu_excluir == 1)
 {
-                    JOptionPane.showMessageDialog(null,"Exclusão realizada com sucesso");
+                    JOptionPane.showMessageDialog(null,"Exclusao realizada com sucesso");
                     con_logradouro.executaSQL("Select * from logradouro order by "+ordenacao);
                     atualizaComboBox();
                     con_logradouro.resultset.first();
@@ -515,7 +515,7 @@ else
             
             String sqlinsert = "insert into logradouro (nome) values ('"+tf_nome.getText()+"')";
             con_logradouro.statement.executeUpdate(sqlinsert);
-            JOptionPane.showMessageDialog(null,"GRAVAÇÃO REALIZADA COM SUCESSO!");
+            JOptionPane.showMessageDialog(null,"GRAVACAO REALIZADA COM SUCESSO!");
             con_logradouro.executaSQL("select * from logradouro");
             atualizaComboBox();
             con_logradouro.resultset.last();
@@ -631,7 +631,7 @@ else
         catch(SQLException erro)
 {
             
-            JOptionPane.showMessageDialog(null,"Erro ao tentar pesquisar via digitação!"+erro);
+            JOptionPane.showMessageDialog(null,"Erro ao tentar pesquisar via digitacao!"+erro);
         }
     }//GEN-LAST:event_tf_pesquisaActionPerformed
     
@@ -691,7 +691,7 @@ catch(SQLException erro)
         if(navega==0)
             JOptionPane.showMessageDialog(null,"voce ja esta nu primeiro registro");
         else
-            JOptionPane.showMessageDialog(null,"dados não localizados"+erro);
+            JOptionPane.showMessageDialog(null,"dados nao localizados"+erro);
 }
         
         
@@ -754,7 +754,7 @@ catch(SQLException erro)
             con_logradouro.resultset.first();
         }
 catch (SQLException erro) {
-    JOptionPane.showMessageDialog(null,"Erro na ordenação dos dados"+erro);
+    JOptionPane.showMessageDialog(null,"Erro na ordenacao dos dados"+erro);
 }
         
         mostraDados();

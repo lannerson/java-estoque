@@ -6,7 +6,6 @@
 package utilitarios;
 import java.sql.*;
 import javax.swing.*;
-
 /**
  *
  * @author martins
@@ -14,10 +13,11 @@ import javax.swing.*;
 public class conexao
 {
 
-    final private String driver ="com.mysql.jdbc.Driver";
-    final private String url = "jdbc:mysql://127.0.0.1:3306/cidades";
-    final private String usuario = "root";
-    final private String senha = "martins";
+    final private String driver ="sun.jdbc.odbc.JdbcOdbcDriver";
+    final private String url = "jdbc:odbc:estoque";
+    
+    final private String usuario = "";
+    final private String senha = "";
     private Connection conexao;
     public Statement statement;
     public ResultSet resultset;
@@ -32,12 +32,12 @@ public class conexao
         {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, usuario, senha);
-            //JOptionPane.showMessageDialog(null, "conectou!");
+            JOptionPane.showMessageDialog(null, "conectou!");
         }
         
         catch(ClassNotFoundException Driver)
         {
-            JOptionPane.showMessageDialog(null, "driver nao localizado!"+Driver);
+            JOptionPane.showMessageDialog(null, "driver não localizado!"+Driver);
             result = false;
         }
          catch(SQLException Fonte)
@@ -60,7 +60,7 @@ public class conexao
         catch(SQLException erroSQL)
         {
          
-            JOptionPane.showMessageDialog(null, "nao foi possivel"+"fechar o banco de dados"+erroSQL.getMessage());
+            JOptionPane.showMessageDialog(null, "não foi possivel"+"fechar o banco de dados"+erroSQL.getMessage());
             result= false;
         }
     }
@@ -71,12 +71,12 @@ public class conexao
         
         try
         {
-            statement = conexao.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY); //cria declaracao para escrever no banco
+            statement = conexao.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY); //cria declaração para escrever no banco
             resultset = statement.executeQuery(sql); // executa a consulta passando o comando sql como parametro
         }
         catch (SQLException sqlex)
         {
-            JOptionPane.showMessageDialog(null, "nao foi possivel"+"executar o comando sql"+sqlex+", o sql passado foi"+sql);
+            JOptionPane.showMessageDialog(null, "não foi possivel"+"executar o comando sql"+sqlex+", o sql passado foi"+sql);
         }
     }
      

@@ -115,10 +115,10 @@ import javax.swing.table.DefaultTableModel;
         setFocusTraversalPolicyProvider(true);
         setLocationByPlatform(true);
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jLabel4.setText("Nome.:");
 
-        jL_codigo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jL_codigo.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jL_codigo.setText("Codigo.:");
 
         cb_endereco.setToolTipText("selecione a unidade federativa(estado)");
@@ -235,7 +235,7 @@ import javax.swing.table.DefaultTableModel;
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -273,7 +273,6 @@ import javax.swing.table.DefaultTableModel;
         grupoOrdenacao.add(radioButtonCodigo);
         radioButtonCodigo.setText("Codigo");
         radioButtonCodigo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        radioButtonCodigo.setMargin(new java.awt.Insets(0, 0, 0, 0));
         radioButtonCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonCodigoActionPerformed(evt);
@@ -284,7 +283,6 @@ import javax.swing.table.DefaultTableModel;
         radioButtonNome.setSelected(true);
         radioButtonNome.setText("Nome");
         radioButtonNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        radioButtonNome.setMargin(new java.awt.Insets(0, 0, 0, 0));
         radioButtonNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonNomeActionPerformed(evt);
@@ -323,7 +321,7 @@ import javax.swing.table.DefaultTableModel;
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jl_titulo_cliente.setBackground(new java.awt.Color(0, 51, 255));
-        jl_titulo_cliente.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jl_titulo_cliente.setFont(new java.awt.Font("Tahoma", 1, 36));
         jl_titulo_cliente.setForeground(new java.awt.Color(255, 255, 255));
         jl_titulo_cliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_titulo_cliente.setText("CADASTRO DE CLIENTES");
@@ -333,7 +331,7 @@ import javax.swing.table.DefaultTableModel;
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jl_titulo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -342,7 +340,7 @@ import javax.swing.table.DefaultTableModel;
             .addComponent(jl_titulo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jl_endereco.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_endereco.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_endereco.setText(" Endereco.:");
 
         tf_CodLog.setToolTipText("digite o nome da cidade");
@@ -360,9 +358,9 @@ import javax.swing.table.DefaultTableModel;
         });
 
         jl_numero.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jl_numero.setText("Nº.:");
+        jl_numero.setText("Nr.:");
 
-        jl_complemento.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_complemento.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_complemento.setText("Complemento.:");
 
         tf_complemento.setToolTipText("digite o nome da cidade");
@@ -372,7 +370,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jl_bairro.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_bairro.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_bairro.setText(" Endereco.:");
 
         tf_bairro.setToolTipText("digite o nome da cidade");
@@ -384,7 +382,7 @@ import javax.swing.table.DefaultTableModel;
 
         cb_bairro.setToolTipText("selecione a unidade federativa(estado)");
 
-        jl_cidade.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_cidade.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_cidade.setText("Cidade.:");
 
         tf_cidade.setToolTipText("digite o nome da cidade");
@@ -396,7 +394,7 @@ import javax.swing.table.DefaultTableModel;
 
         cb_cidade.setToolTipText("selecione a unidade federativa(estado)");
 
-        jl_cpf.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_cpf.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_cpf.setText("CPF.:");
 
         tf_cpf.setToolTipText("digite o nome da cidade");
@@ -406,7 +404,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jl_cep.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_cep.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_cep.setText("CEP.:");
 
         tf_cep.setToolTipText("digite o nome da cidade");
@@ -416,7 +414,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jl_rg.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_rg.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_rg.setText(" RG.:");
 
         tf_rg.setToolTipText("digite o nome da cidade");
@@ -433,7 +431,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jl_dataNascimento.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_dataNascimento.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_dataNascimento.setText("Fone Cel.:");
 
         tf_dataNascimento1.setToolTipText("digite o nome da cidade");
@@ -443,7 +441,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jl_dataNascimento1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_dataNascimento1.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_dataNascimento1.setText("Data de Nascimento.:");
 
         tf_foneRes.setToolTipText("digite o nome da cidade");
@@ -453,10 +451,10 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jl_foneRes.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_foneRes.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_foneRes.setText(" Fone Res.:");
 
-        jl_cpf1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jl_cpf1.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jl_cpf1.setText("Fone Comercial.:");
 
         tf_cpf1.setToolTipText("digite o nome da cidade");
@@ -466,7 +464,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jL_email.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jL_email.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jL_email.setText("E-mail.:");
 
         tf_email.setToolTipText("digite  o codigo da cidade");
@@ -476,7 +474,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jL_dataCadastro.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jL_dataCadastro.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jL_dataCadastro.setText("Data Cadastro.:");
 
         tf_dataCadastro.setToolTipText("digite o nome da cidade");
@@ -486,7 +484,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jL_observacao.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jL_observacao.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jL_observacao.setText("Observacao.:");
 
         tf_observacao.setToolTipText("digite o nome da cidade");
@@ -496,7 +494,7 @@ import javax.swing.table.DefaultTableModel;
             }
         });
 
-        jL_observacao1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jL_observacao1.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jL_observacao1.setText("Foto.:");
 
         tf_observacao1.setToolTipText("digite o nome da cidade");
@@ -553,11 +551,11 @@ import javax.swing.table.DefaultTableModel;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botao_incluir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(botao_gravar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
                         .addComponent(botao_alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addComponent(botao_excluir)))
@@ -575,11 +573,11 @@ import javax.swing.table.DefaultTableModel;
                 .addComponent(botao_registro_frente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(botao_ultimo_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(459, Short.MAX_VALUE))
+                .addContainerGap(473, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -596,7 +594,7 @@ import javax.swing.table.DefaultTableModel;
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addGap(27, 27, 27)
-                        .addComponent(tf_nome, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                        .addComponent(tf_nome, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
                         .addGap(278, 278, 278))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
@@ -629,7 +627,7 @@ import javax.swing.table.DefaultTableModel;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jl_foneRes)
                         .addGap(14, 14, 14)
-                        .addComponent(tf_foneRes, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                        .addComponent(tf_foneRes, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jl_cpf1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -641,7 +639,7 @@ import javax.swing.table.DefaultTableModel;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jl_rg)
                         .addGap(14, 14, 14)
-                        .addComponent(tf_rg, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addComponent(tf_rg, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jl_cpf)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -649,7 +647,7 @@ import javax.swing.table.DefaultTableModel;
                         .addGap(30, 30, 30)
                         .addComponent(jl_dataNascimento1)
                         .addGap(14, 14, 14)
-                        .addComponent(tf_dataNascimento1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)))
+                        .addComponent(tf_dataNascimento1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)))
                 .addGap(280, 280, 280))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -660,13 +658,13 @@ import javax.swing.table.DefaultTableModel;
                 .addComponent(jL_dataCadastro)
                 .addGap(27, 27, 27)
                 .addComponent(tf_dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(481, Short.MAX_VALUE))
+                .addContainerGap(493, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jL_observacao)
                 .addGap(27, 27, 27)
                 .addComponent(tf_observacao, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(340, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jL_observacao1)
@@ -674,7 +672,7 @@ import javax.swing.table.DefaultTableModel;
                 .addComponent(tf_observacao1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(561, Short.MAX_VALUE))
+                .addContainerGap(590, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
