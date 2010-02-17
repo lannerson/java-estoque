@@ -9,10 +9,9 @@
     <class>br.com.ClassesPersistentes.Unidade</class>
     <properties>
       <property name="toplink.jdbc.user" value="root"/>
-      <property name="toplink.jdbc.password" value="123"/>
-      <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/siscomjava"/>
+      <property name="toplink.jdbc.password" value="martins"/>
+      <property name="toplink.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/siscomJava"/>
       <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="toplink.ddl-generation" value="create-tables"/>
     </properties>
   </persistence-unit>
 </persistence>
