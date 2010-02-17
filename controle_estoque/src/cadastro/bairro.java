@@ -3,7 +3,11 @@ import utilitarios.conexao;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
+import relatorio.ExcRepositorio;
+import relatorio.RelatorioCidades;
 
 public class bairro extends javax.swing.JFrame {
     conexao con_bairro;
@@ -73,6 +77,7 @@ public class bairro extends javax.swing.JFrame {
         radioButtonNome = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jB_relatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("cadastro de bairros");
@@ -308,6 +313,13 @@ public class bairro extends javax.swing.JFrame {
             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jB_relatorio.setText("relatorio");
+        jB_relatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_relatorioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -349,7 +361,10 @@ public class bairro extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(botao_registro_frente, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(botao_ultimo_registro)))
+                                            .addComponent(botao_ultimo_registro))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jB_relatorio)))
                                     .addGap(56, 56, 56)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addContainerGap()))))
@@ -386,7 +401,9 @@ public class bairro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56)
+                .addGap(15, 15, 15)
+                .addComponent(jB_relatorio)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(110, 110, 110))
         );
@@ -639,6 +656,21 @@ else
             JOptionPane.showMessageDialog(null,"Erro ao tentar pesquisar via digitacao!"+erro);
         }
     }//GEN-LAST:event_tf_pesquisaActionPerformed
+
+    private void jB_relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_relatorioActionPerformed
+                relatorio.RelatorioCidades rep = new RelatorioCidades();
+		JasperPrint relat;
+
+		try {
+
+			relat = rep.gerar();
+			JasperViewer.viewReport(relat, false);
+		} catch (ExcRepositorio e) {
+			JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
+		}
+
+
+    }//GEN-LAST:event_jB_relatorioActionPerformed
     
     /**
      * @param args the command line arguments
@@ -661,6 +693,7 @@ else
     private javax.swing.JButton botao_registro_frente;
     private javax.swing.JButton botao_ultimo_registro;
     private javax.swing.ButtonGroup grupoOrdenacao;
+    private javax.swing.JButton jB_relatorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

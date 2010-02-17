@@ -187,7 +187,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="1153" max="32767" attributes="0"/>
+                      <EmptySpace pref="1151" max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
@@ -196,19 +196,19 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="3750" max="32767" attributes="0"/>
+              <EmptySpace pref="3748" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" pref="775" max="-2" attributes="1"/>
-              <EmptySpace pref="3722" max="32767" attributes="0"/>
+              <EmptySpace pref="3720" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Component id="label_data" min="-2" pref="541" max="-2" attributes="0"/>
-              <EmptySpace pref="3956" max="32767" attributes="0"/>
+              <EmptySpace pref="3954" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Component id="label_hora" min="-2" pref="378" max="-2" attributes="0"/>
-              <EmptySpace pref="4119" max="32767" attributes="0"/>
+              <EmptySpace pref="4117" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
