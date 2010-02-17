@@ -47,7 +47,33 @@ public class conexao
         }
         return result;
     }
-    
+
+    public Connection conectaRelat()
+    {
+
+
+        try
+        {
+            Class.forName(driver);
+            conexao = DriverManager.getConnection(url, usuario, senha);
+            //JOptionPane.showMessageDialog(null, "conectou!");
+        }
+
+        catch(ClassNotFoundException Driver)
+        {
+            JOptionPane.showMessageDialog(null, "driver nao localizado!"+Driver);
+
+        }
+         catch(SQLException Fonte)
+        {
+            JOptionPane.showMessageDialog(null, " deu erro na conexao "+"com a fonte de dados"+Fonte);
+
+        }
+        return conexao;
+    }
+
+
+
     public void desconecta()
     {
        boolean result = true;
