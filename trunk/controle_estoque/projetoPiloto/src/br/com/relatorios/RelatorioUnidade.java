@@ -24,7 +24,7 @@ public class RelatorioUnidade {
        try {
          Connection con = gconexao.getConexao();
           HashMap map = new HashMap();
-          String arquivoJasper = "/mnt/banco/Meus documentos/programacao/projeto_estoque_linux/projetoPiloto/src/br/com/relatorios/produto.jasper";
+          String arquivoJasper = "produto.jasper";
           rel = JasperFillManager.fillReport(arquivoJasper, map, con);
        } catch (JRException e) {
           JOptionPane.showMessageDialog(null,e.getMessage());
