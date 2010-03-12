@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="SGPSPU" transaction-type="RESOURCE_LOCAL">
+    <provider>oracle.toplink.essentials.PersistenceProvider</provider>
+    <class>sgps.classeMapeada.Pessoa</class>
+    <class>sgps.classeMapeada.Contacorrente</class>
+    <class>sgps.classeMapeada.Cliente</class>
+    <class>sgps.classeMapeada.Contasreceber</class>
+    <class>sgps.classeMapeada.Agendamento</class>
+    <class>sgps.classeMapeada.Raca</class>
+    <class>sgps.classeMapeada.Usuario</class>
+    <class>sgps.classeMapeada.Movimentoservico</class>
+    <class>sgps.classeMapeada.Acessousuario</class>
+    <class>sgps.classeMapeada.Estoque</class>
+    <class>sgps.classeMapeada.Movimentofinanceiro</class>
+    <class>sgps.classeMapeada.Dominio</class>
+    <class>sgps.classeMapeada.Venda</class>
+    <class>sgps.classeMapeada.Telasistema</class>
+    <class>sgps.classeMapeada.Cidade</class>
+    <class>sgps.classeMapeada.Funcao</class>
+    <class>sgps.classeMapeada.Grupoproduto</class>
+    <class>sgps.classeMapeada.Controlecaixa</class>
+    <class>sgps.classeMapeada.Fornecedor</class>
+    <class>sgps.classeMapeada.Unidademedida</class>
+    <class>sgps.classeMapeada.Servico</class>
+    <class>sgps.classeMapeada.Vacina</class>
+    <class>sgps.classeMapeada.Tipomovimentofinanceiro</class>
+    <class>sgps.classeMapeada.Animal</class>
+    <class>sgps.classeMapeada.Itemagendamento</class>
+    <class>sgps.classeMapeada.Especie</class>
+    <class>sgps.classeMapeada.Contaspagar</class>
+    <class>sgps.classeMapeada.Uf</class>
+    <class>sgps.classeMapeada.Entrada</class>
+    <class>sgps.classeMapeada.Movimentocaixa</class>
+    <class>sgps.classeMapeada.Funcionario</class>
+    <class>sgps.classeMapeada.Itementrada</class>
+    <class>sgps.classeMapeada.Endereco</class>
+    <class>sgps.classeMapeada.Vermifugo</class>
+    <properties>
+      <property name="toplink.jdbc.user" value="root"/>
+      <property name="toplink.jdbc.password" value="martins"/>
+      <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/sgps"/>
+      <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+    </properties>
+  </persistence-unit>
+</persistence>
