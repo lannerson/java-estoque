@@ -89,6 +89,12 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jbExcluir.setEnabled(false);
         jbImprimir.setEnabled(false);
         jbExportar.setEnabled(false);
+        tfDataCadastro.setEnabled(true);
+        tfDataExpiracaoSenha.setEnabled(true);
+        tfLogin.setEnabled(true);
+        tfNomeCompleto.setEnabled(true);
+        tfSenha.setEnabled(true);
+        jbSalvar.setEnabled(true);
     }
     
     /** Método que controla as ações, a serem executadas no Cancelamento de
@@ -127,6 +133,10 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
      */
     private void Limpar() {
     }
+
+    /**
+     * Método responsável por desabilitar os campos.
+     */
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -150,8 +160,6 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         tfSenha = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jlDataCadastro1 = new javax.swing.JLabel();
-        tfDataCadastro1 = new javax.swing.JFormattedTextField();
         pnMenu = new javax.swing.JPanel();
         jpBotoes = new javax.swing.JPanel();
         jbNovo = new javax.swing.JButton();
@@ -194,81 +202,76 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
 
         jLNomeCompleto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLNomeCompleto.setText("Nome Completo:");
-        jpManutencao.add(jLNomeCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        jpManutencao.add(jLNomeCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
+        tfNomeCompleto.setFocusable(false);
         tfNomeCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNomeCompletoActionPerformed(evt);
             }
         });
-        jpManutencao.add(tfNomeCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 290, -1));
+        jpManutencao.add(tfNomeCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 290, -1));
 
-        jlDataCadastro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlDataCadastro.setFont(new java.awt.Font("Tahoma", 1, 11));
         jlDataCadastro.setText("Data de Cadastro:");
-        jpManutencao.add(jlDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jpManutencao.add(jlDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
+        tfDataCadastro.setEnabled(false);
         tfDataCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfDataCadastroActionPerformed(evt);
             }
         });
-        jpManutencao.add(tfDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 80, 20));
+        jpManutencao.add(tfDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, 20));
 
-        jlDataDeExpiracaoSenha.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlDataDeExpiracaoSenha.setFont(new java.awt.Font("Tahoma", 1, 11));
         jlDataDeExpiracaoSenha.setText("Data de Expiração da Senha:");
-        jpManutencao.add(jlDataDeExpiracaoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jpManutencao.add(jlDataDeExpiracaoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
+        tfDataExpiracaoSenha.setEnabled(false);
         tfDataExpiracaoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfDataExpiracaoSenhaActionPerformed(evt);
             }
         });
-        jpManutencao.add(tfDataExpiracaoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 80, -1));
+        jpManutencao.add(tfDataExpiracaoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 80, -1));
 
-        jlUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlUsuario.setFont(new java.awt.Font("Tahoma", 1, 11));
         jlUsuario.setText("Usuário:");
-        jpManutencao.add(jlUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jpManutencao.add(jlUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
+        tfLogin.setEnabled(false);
         tfLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfLoginActionPerformed(evt);
             }
         });
-        jpManutencao.add(tfLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 100, -1));
+        jpManutencao.add(tfLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 100, -1));
 
-        jlSenha.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlSenha.setFont(new java.awt.Font("Tahoma", 1, 11));
         jlSenha.setText("Senha:");
-        jpManutencao.add(jlSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        jpManutencao.add(jlSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
+        tfSenha.setEnabled(false);
         tfSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSenhaActionPerformed(evt);
             }
         });
-        jpManutencao.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 100, -1));
+        jpManutencao.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 100, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Operacional", "Administrativo", "Gerencial", "Customizado" }));
+        jComboBox1.setEnabled(false);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jpManutencao.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 120, -1));
+        jpManutencao.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 120, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel3.setText("Nível de Acesso:");
-        jpManutencao.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
-
-        jlDataCadastro1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jlDataCadastro1.setText("Cod. Usuário:");
-        jpManutencao.add(jlDataCadastro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-
-        tfDataCadastro1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDataCadastro1ActionPerformed(evt);
-            }
-        });
-        jpManutencao.add(tfDataCadastro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 80, 20));
+        jpManutencao.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         jpFormulario.add(jpManutencao, "tela2");
 
@@ -279,7 +282,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jpBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Controles ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         jpBotoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jbNovo.setFont(new java.awt.Font("Tahoma", 0, 10));
+        jbNovo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jbNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Novo.png"))); // NOI18N
         jbNovo.setText("Novo");
         jbNovo.setFocusable(false);
@@ -387,7 +390,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
         );
 
         pack();
@@ -407,7 +410,8 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         //usuario.setDatacadastrousuario(tfDataCadastro.getText());
         Usuario.setNomeusuario(tfLogin.getText());
         Usuario.setSenhausuario(tfSenha.getText());
-        UsuarioControle.salvar(Usuario);
+        //UsuarioControle.salvar(Usuario);
+        Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parset(tfDataExpiracaoSenha.get);
          /*
         usuarioControle.salvar(usuario);
 
@@ -509,10 +513,6 @@ usuario.setAcessousuarioList(acessolist);
     private void tfDataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataCadastroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfDataCadastroActionPerformed
-
-    private void tfDataCadastro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataCadastro1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDataCadastro1ActionPerformed
             
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBox1;
@@ -526,7 +526,6 @@ usuario.setAcessousuarioList(acessolist);
     private javax.swing.JButton jbNovo;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JLabel jlDataCadastro;
-    private javax.swing.JLabel jlDataCadastro1;
     private javax.swing.JLabel jlDataDeExpiracaoSenha;
     private javax.swing.JLabel jlSenha;
     private javax.swing.JLabel jlTextoMsgFeedback;
@@ -539,7 +538,6 @@ usuario.setAcessousuarioList(acessolist);
     private javax.swing.JPanel jpSecundário;
     private javax.swing.JPanel pnMenu;
     private javax.swing.JFormattedTextField tfDataCadastro;
-    private javax.swing.JFormattedTextField tfDataCadastro1;
     private javax.swing.JFormattedTextField tfDataExpiracaoSenha;
     private javax.swing.JTextField tfLogin;
     private javax.swing.JTextField tfNomeCompleto;
