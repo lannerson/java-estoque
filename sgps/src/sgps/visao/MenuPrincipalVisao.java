@@ -188,7 +188,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     }//GEN-LAST:event_miCadUsuarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-     //dpPrincipal.add(new LoginVisao(this));   // TODO add your handling code here:
+     dpPrincipal.add(new LoginVisao(this));   // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
     private void miCadAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadAnimalActionPerformed
