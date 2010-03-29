@@ -61,30 +61,35 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setTitle("Identicação do Usuário");
-        setVisible(true);
         try {
             setSelected(true);
         } catch (java.beans.PropertyVetoException e1) {
             e1.printStackTrace();
         }
+        setVisible(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpFundo.setBackground(java.awt.Color.lightGray);
+        jpFundo.setPreferredSize(new java.awt.Dimension(262, 368));
         jpFundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Logo_login.png"))); // NOI18N
-        jpFundo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
+        jpFundo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, -1));
 
         jpDados.setBackground(new java.awt.Color(204, 204, 204));
         jpDados.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, new java.awt.Color(204, 204, 204), null, new java.awt.Color(204, 204, 204)));
+        jpDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlLogin.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jlLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlLogin.setText("Login:");
+        jpDados.add(jlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        tfLogin.setText("usuario");
+        tfLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jpDados.add(tfLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Senha:");
+        jpDados.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jbOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Acesso16.PNG"))); // NOI18N
         jbOk.setText("ok");
@@ -93,6 +98,7 @@ public class LoginVisao extends javax.swing.JInternalFrame {
                 jbOkActionPerformed(evt);
             }
         });
+        jpDados.add(jbOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         jbSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Cancelar.png"))); // NOI18N
         jbSair.setText("Sair");
@@ -101,82 +107,42 @@ public class LoginVisao extends javax.swing.JInternalFrame {
                 jbSairActionPerformed(evt);
             }
         });
+        jpDados.add(jbSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+        jpDados.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 170, -1));
 
-        tfSenha.setText("jPddddd");
+        jpFundo.add(jpDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 140, 190, 170));
 
-        javax.swing.GroupLayout jpDadosLayout = new javax.swing.GroupLayout(jpDados);
-        jpDados.setLayout(jpDadosLayout);
-        jpDadosLayout.setHorizontalGroup(
-            jpDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDadosLayout.createSequentialGroup()
-                        .addGroup(jpDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlLogin)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(jpDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                            .addComponent(tfLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)))
-                    .addGroup(jpDadosLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jbOk)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbSair)))
-                .addContainerGap())
-        );
-        jpDadosLayout.setVerticalGroup(
-            jpDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlLogin)
-                    .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(jpDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbOk)
-                    .addComponent(jbSair))
-                .addContainerGap())
-        );
-
-        jpFundo.add(jpDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
-
-        getContentPane().add(jpFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 260));
+        getContentPane().add(jpFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 262, 329));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jbSairActionPerformed
+}//GEN-LAST:event_jbSairActionPerformed
 
     private void jbOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkActionPerformed
-     UsuarioControle usuarioControle = new UsuarioControle();
-     Usuario us = usuarioControle.getInstanciaUsuario();
-     EntityManager em= usuarioControle.getEntityManager();
-     Query query;
-     query = em.createNamedQuery("Usuario.verificaLogin");
-     query.setParameter("nomeusuario", tfLogin.getText());
-     query.setParameter("senhausuario", tfSenha.getText());
-      List<Usuario> lus = new ArrayList<Usuario>();
-      lus = query.getResultList();
-      if (lus.size() > 0) {
-          JOptionPane.showMessageDialog(null, "usuario existente");
-           // String args[] = new String[1];
+        UsuarioControle usuarioControle = new UsuarioControle();
+        Usuario us = usuarioControle.getInstanciaUsuario();
+        EntityManager em= usuarioControle.getEntityManager();
+        Query query;
+        query = em.createNamedQuery("Usuario.verificaLogin");
+        query.setParameter("nomeusuario", tfLogin.getText());
+        query.setParameter("senhausuario", tfSenha.getText());
+        List<Usuario> lus = new ArrayList<Usuario>();
+        lus = query.getResultList();
+        if (lus.size() > 0) {
+            JOptionPane.showMessageDialog(null, "usuario existente");
+            // String args[] = new String[1];
             //args[0] = lus.get(0).ge.toString();
-           //Menu.main(args);
+            //Menu.main(args);
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Usuário/Senha incorretos");
             dispose();
         }
         /*
-    * query = entityManager.createNamedQuery("Funcionario.verificaLogin");
+         * query = entityManager.createNamedQuery("Funcionario.verificaLogin");
         query.setParameter("loginFuncionario", jTextField1.getText());
         query.setParameter("senhaFuncionario", EncriptaSenha.encripta(jPasswordField1.getText()));
         List<Funcionario> data = query.getResultList();
@@ -192,9 +158,8 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         }
 
 }
-    *
-*/
-
+         *
+         */
 
     }//GEN-LAST:event_jbOkActionPerformed
 
