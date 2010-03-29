@@ -79,11 +79,11 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         jpAreaTrabalho.setLayout(jpAreaTrabalhoLayout);
         jpAreaTrabalhoLayout.setHorizontalGroup(
             jpAreaTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
         );
         jpAreaTrabalhoLayout.setVerticalGroup(
             jpAreaTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
         );
 
         jpFundoPrincipal.add(jpAreaTrabalho, java.awt.BorderLayout.CENTER);
@@ -94,7 +94,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         jpBarraBotoes.setLayout(jpBarraBotoesLayout);
         jpBarraBotoesLayout.setHorizontalGroup(
             jpBarraBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 552, Short.MAX_VALUE)
+            .addGap(0, 554, Short.MAX_VALUE)
         );
         jpBarraBotoesLayout.setVerticalGroup(
             jpBarraBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,11 +155,11 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpFundoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+            .addComponent(jpFundoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpFundoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+            .addComponent(jpFundoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -188,7 +188,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     }//GEN-LAST:event_miCadUsuarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-     dpPrincipal.add(new LoginVisao(this));   // TODO add your handling code here:
+    // dpPrincipal.add(new LoginVisao(this));   // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
     private void miCadAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadAnimalActionPerformed
