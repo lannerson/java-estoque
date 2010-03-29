@@ -125,7 +125,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
      */
     private void Alterar() {
         MensagemRodape.setMensagemRodape(1, jpRodape, mensagemPadrao);
-        jbNovo.setEnabled(false);
+        jbNovo.setEnabled(true);
         jbCancelar.setEnabled(false);
         jbSalvar.setEnabled(false);
         jbAlterar.setEnabled(true);
@@ -485,49 +485,53 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbNovoActionPerformed
     
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-            if(Usuario.getIdusuario() == null)
-            {
-            try {
-             Usuario = UsuarioControle.getInstanciaUsuario();
-             Usuario.setNomeusuariocompleto(tfNomeComp.getText());
-             Usuario.setNomeusuario(tfLogin.getText());
-             Usuario.setSenhausuario(jpfSenha.getText());
-             Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
-             UsuarioControle.salvar(Usuario);
-             Salvar();
-             Limpar();
-             MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
-                    + "com Sucesso");   
+
+                     try {
+                     Usuario = UsuarioControle.getInstanciaUsuario();
+                     Usuario.setNomeusuariocompleto(tfNomeComp.getText());
+                     Usuario.setNomeusuario(tfLogin.getText());
+                     Usuario.setSenhausuario(jpfSenha.getText());
+                     Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
+                     UsuarioControle.salvar(Usuario);
+                     Salvar();
+                     Limpar();
+                     MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
+                            + "com Sucesso");
         } catch (Exception e) {
             e.printStackTrace();
             MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
                     + " gravar o registro");
         }
-            }
-            else {
-                
-             try {
-             Usuario = UsuarioControle.getInstanciaUsuario();
-             Usuario.setNomeusuariocompleto(tfNomeComp.getText());
-             Usuario.setNomeusuario(tfLogin.getText());
-             Usuario.setSenhausuario(jpfSenha.getText());
-             Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
-             UsuarioControle.alterar(Usuario);
-             Salvar();
-             Limpar();
-             MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
-                    + "com Sucesso");   
-            } catch (Exception e) {
-            e.printStackTrace();
-            MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
-                    + " alterar o registro");
-        }
-            
+
+
+
+
+                 /*
+                        else {
+
+                                 try {
+                                 Usuario = UsuarioControle.getInstanciaUsuario();
+                                 Usuario.setNomeusuariocompleto(tfNomeComp.getText());
+                                 Usuario.setNomeusuario(tfLogin.getText());
+                                 Usuario.setSenhausuario(jpfSenha.getText());
+                                 Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
+                                 UsuarioControle.alterar(Usuario);
+                                 Salvar();
+                                 Limpar();
+                                 MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
+                                        + "com Sucesso");
+                                } catch (Exception e){
+
+                                e.printStackTrace();
+                                MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
+                                        + " alterar o registro");
+                                  }
+
+
+
                 }
 
-
-        
-        
+        */
     }//GEN-LAST:event_jbSalvarActionPerformed
     
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
@@ -578,12 +582,32 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     private void jtblConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblConsultaMouseClicked
 
       Alterar();
+      jbSalvar.setEnabled(false);
+
     }//GEN-LAST:event_jtblConsultaMouseClicked
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
+        this.Usuario = lus.get(jtblConsulta.getSelectedRow());
+        
+        int opcao_escolhida = JOptionPane.showConfirmDialog(null,"Deseja excluir o Usuário: "+Usuario.getNomeusuario(),"Exclusao ", JOptionPane.YES_NO_OPTION);
+          if(opcao_escolhida==JOptionPane.YES_OPTION)
+          {
 
-         this.Usuario = lus.get(jtblConsulta.getSelectedRow());
-         UsuarioControle.excluir(Usuario.getIdusuario());
+
+            if ( UsuarioControle.excluir(Usuario.getIdusuario()))
+            {
+                JOptionPane.showMessageDialog(null,"Usuário excluído com sucesso!");
+                
+            }
+
+          }
+          else
+             return;
+
+
+
+         
+         
     }//GEN-LAST:event_jbExcluirActionPerformed
             
     // Variables declaration - do not modify//GEN-BEGIN:variables
