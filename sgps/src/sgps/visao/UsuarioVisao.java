@@ -574,7 +574,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         TabelaModeloUsuario tabelaUsuario = new TabelaModeloUsuario(lus);
         jtblConsulta.setModel(tabelaUsuario);
         jbAlterar.setEnabled(true);
-        
+        jbExcluir.setEnabled(false);
         
             
 }//GEN-LAST:event_jbPesquisarActionPerformed
@@ -583,10 +583,13 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
 
       Alterar();
       jbSalvar.setEnabled(false);
-
+     
     }//GEN-LAST:event_jtblConsultaMouseClicked
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
+
+        try{
+
         this.Usuario = lus.get(jtblConsulta.getSelectedRow());
         
         int opcao_escolhida = JOptionPane.showConfirmDialog(null,"Deseja excluir o Usuário: "+Usuario.getNomeusuario(),"Exclusao ", JOptionPane.YES_NO_OPTION);
@@ -596,7 +599,9 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
 
             if ( UsuarioControle.excluir(Usuario.getIdusuario()))
             {
-                JOptionPane.showMessageDialog(null,"Usuário excluído com sucesso!");
+                //JOptionPane.showMessageDialog(null,"Usuário excluído com sucesso!");
+                MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
+                            + "com Sucesso");
                 
             }
 
@@ -604,10 +609,14 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
           else
              return;
 
-
-
-         
-         
+       }
+       catch(Exception e)
+       {
+            e.printStackTrace();
+             MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
+                    + " gravar o registro");
+       }
+                  
     }//GEN-LAST:event_jbExcluirActionPerformed
             
     // Variables declaration - do not modify//GEN-BEGIN:variables
