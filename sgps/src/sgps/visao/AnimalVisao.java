@@ -23,7 +23,7 @@ import sgps.classeMapeada.Especie;
 import sgps.classeMapeada.Raca;
 import sgps.conexao.Conexao;
 import sgps.controle.AnimalControle;
-import java.sql.Date;
+
 public class AnimalVisao extends javax.swing.JInternalFrame {
 
     /** Construtor do formulário AnimalVisao. */
@@ -179,6 +179,8 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
         jftPedigreeAnimal = new javax.swing.JFormattedTextField();
         jcbEspecieAnimal = new javax.swing.JComboBox();
         jftNomeAnimal = new javax.swing.JFormattedTextField();
+        dfDataNascimento = new net.sf.nachocalendar.components.DateField();
+        dfCadastro = new net.sf.nachocalendar.components.DateField();
         jcbRacaAnimal = new javax.swing.JComboBox();
         jftCodigoCliente = new javax.swing.JFormattedTextField();
         jcbPorteAnimal = new javax.swing.JComboBox();
@@ -228,7 +230,7 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
         jpRodape.setPreferredSize(new java.awt.Dimension(760, 10));
         jpRodape.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlTextoMsgFeedback.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jlTextoMsgFeedback.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jlTextoMsgFeedback.setName("Mensagem"); // NOI18N
         jpRodape.add(jlTextoMsgFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 4, 750, 15));
 
@@ -266,9 +268,11 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
         jcomboColunas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Razão Social", "Nome Cliente" }));
         jpPesquisaConsulta.add(jcomboColunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 150, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 11));
         jLabel2.setText("Informação a Pesquisar:");
         jpPesquisaConsulta.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 11));
         jLabel1.setText("Descriçao da Informação:");
         jpPesquisaConsulta.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 14, -1, -1));
         jLabel1.getAccessibleContext().setAccessibleName("");
@@ -308,6 +312,8 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
 
         jpManutencao.add(jcbEspecieAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 100, -1));
         jpManutencao.add(jftNomeAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 240, -1));
+        jpManutencao.add(dfDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, 20));
+        jpManutencao.add(dfCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 80, 20));
 
         jpManutencao.add(jcbRacaAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 170, -1));
         jpManutencao.add(jftCodigoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 70, -1));
@@ -432,6 +438,7 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
 
         jpBotoes.setBackground(new java.awt.Color(173, 216, 230));
         jpBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Controles ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jpBotoes.setFont(new java.awt.Font("Tahoma", 0, 11));
         jpBotoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbNovo.setFont(new java.awt.Font("Tahoma", 0, 10));
@@ -447,7 +454,7 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 30, 95, -1));
 
-        jbSalvar.setFont(new java.awt.Font("Tahoma", 0, 10));
+        jbSalvar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Salvar.png"))); // NOI18N
         jbSalvar.setText("Salvar");
         jbSalvar.setEnabled(false);
@@ -508,7 +515,7 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 180, 95, -1));
 
-        jbExportar.setFont(new java.awt.Font("Tahoma", 0, 10));
+        jbExportar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jbExportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/exportar.png"))); // NOI18N
         jbExportar.setText("Exportar");
         jbExportar.setEnabled(false);
@@ -542,7 +549,7 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
         );
 
         pack();
@@ -634,6 +641,8 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private net.sf.nachocalendar.components.DateField dfCadastro;
+    private net.sf.nachocalendar.components.DateField dfDataNascimento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
