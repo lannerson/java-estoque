@@ -485,53 +485,48 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbNovoActionPerformed
     
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-
-                     try {
-                     Usuario = UsuarioControle.getInstanciaUsuario();
-                     Usuario.setNomeusuariocompleto(tfNomeComp.getText());
-                     Usuario.setNomeusuario(tfLogin.getText());
-                     Usuario.setSenhausuario(jpfSenha.getText());
-                     Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
-                     UsuarioControle.salvar(Usuario);
-                     Salvar();
-                     Limpar();
-                     MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
-                            + "com Sucesso");
+            if(Usuario.getIdusuario() == null)
+            {
+                JOptionPane.showMessageDialog(null, "vai incluir");
+            try {
+             Usuario = UsuarioControle.getInstanciaUsuario();
+             Usuario.setNomeusuariocompleto(tfNomeComp.getText());
+             Usuario.setNomeusuario(tfLogin.getText());
+             Usuario.setSenhausuario(jpfSenha.getText());
+             Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
+             UsuarioControle.salvar(Usuario);
+             Salvar();
+             Limpar();
+             MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
+                    + "com Sucesso");   
         } catch (Exception e) {
             e.printStackTrace();
             MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
                     + " gravar o registro");
         }
-
-
-
-
-                 /*
-                        else {
-
-                                 try {
-                                 Usuario = UsuarioControle.getInstanciaUsuario();
-                                 Usuario.setNomeusuariocompleto(tfNomeComp.getText());
-                                 Usuario.setNomeusuario(tfLogin.getText());
-                                 Usuario.setSenhausuario(jpfSenha.getText());
-                                 Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
-                                 UsuarioControle.alterar(Usuario);
-                                 Salvar();
-                                 Limpar();
-                                 MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
-                                        + "com Sucesso");
-                                } catch (Exception e){
-
-                                e.printStackTrace();
-                                MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
-                                        + " alterar o registro");
-                                  }
-
-
-
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "vai alterar");
+             try {
+            // Usuario = UsuarioControle.getInstanciaUsuario();
+             Usuario.setNomeusuariocompleto(tfNomeComp.getText());
+             Usuario.setNomeusuario(tfLogin.getText());
+             Usuario.setSenhausuario(jpfSenha.getText());
+             Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
+             UsuarioControle.alterar(Usuario);
+             Salvar();
+             Limpar();
+             MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
+                    + "com Sucesso");   
+            } catch (Exception e) {
+            e.printStackTrace();
+            MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
+                    + " alterar o registro");
+        }
+            
                 }
 
-        */
+        
     }//GEN-LAST:event_jbSalvarActionPerformed
     
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
