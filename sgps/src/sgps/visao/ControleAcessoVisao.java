@@ -12,6 +12,10 @@ import sgps.util.MenusTreeModel;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -19,7 +23,10 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import sgps.classeMapeada.Animal;
+import sgps.classeMapeada.Usuario;
 import sgps.controle.AnimalControle;
+import sgps.controle.UsuarioControle;
+import sgps.tabelaModelo.TabelaModeloUsuario;
 
 
 public class ControleAcessoVisao extends javax.swing.JInternalFrame {
@@ -32,6 +39,17 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         ConfiguraFormulario("Manutenção de Animais");
         MensagemRodape.setMensagemRodape(1,jpRodape, mensagemPadrao);
         animalControle = new AnimalControle();
+
+        //inicializa a jtable listando todos os usuários já cadastrados no sistema
+
+        UsuarioControle usuarioControle = new UsuarioControle();
+        Usuario us = usuarioControle.getInstanciaUsuario();
+        EntityManager em= usuarioControle.getEntityManager();
+        List<Usuario> lus = new ArrayList<Usuario>();
+        lus = usuarioControle.findAll();
+        TabelaModeloUsuario tabelaUsuario = new TabelaModeloUsuario(lus);
+        jtbListaUsuarios.setModel(tabelaUsuario);
+        
     }
     
     /**
@@ -75,8 +93,6 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         jpRodape = new javax.swing.JPanel();
         jlTextoMsgFeedback = new javax.swing.JLabel();
         jpSecundário = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
         jButton1 = new javax.swing.JButton();
@@ -87,6 +103,8 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jtbListaUsuarios = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -101,27 +119,17 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         jlTextoMsgFeedback.setFont(new java.awt.Font("Tahoma", 0, 12));
         jlTextoMsgFeedback.setText("Nenhuma mensagem gerada.");
         jlTextoMsgFeedback.setName("Mensagem"); // NOI18N
-        jpRodape.add(jlTextoMsgFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 3, 580, -1));
+        jpRodape.add(jlTextoMsgFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 580, -1));
 
         jpPrincipal.add(jpRodape, java.awt.BorderLayout.CENTER);
 
         jpSecundário.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Código", "Usuário", "Status Usuário", "Situação Usuario"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jpSecundário.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTree1.setBackground(new java.awt.Color(173, 216, 230));
         jScrollPane2.setViewportView(jTree1);
+
+        jpSecundário.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 90, 394));
 
         jButton1.setText("Conceder");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,8 +137,10 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jpSecundário.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 345, -1, -1));
 
         jButton2.setText("Retirar");
+        jpSecundário.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 345, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(173, 216, 230));
 
@@ -138,12 +148,14 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 44, Short.MAX_VALUE)
         );
+
+        jpSecundário.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 640, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,76 +170,57 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jTable2);
 
-        jButton3.setText("Confirmar");
+        jpSecundário.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 211, 637, 100));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Nível de Acesso:");
+        jButton3.setText("Confirmar");
+        jpSecundário.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 345, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabel3.setText("Níveis pré-definidos");
+        jpSecundário.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Operacional", "Administrativo", "Gerencial", "Customizado" }));
-        jComboBox1.setEnabled(false);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        jpSecundário.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 375, 120, -1));
 
-        javax.swing.GroupLayout jpSecundárioLayout = new javax.swing.GroupLayout(jpSecundário);
-        jpSecundário.setLayout(jpSecundárioLayout);
-        jpSecundárioLayout.setHorizontalGroup(
-            jpSecundárioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpSecundárioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jpSecundárioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jpSecundárioLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(jpSecundárioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(87, 87, 87)
-                        .addComponent(jButton2)
-                        .addGap(95, 95, 95)
-                        .addComponent(jButton3)
-                        .addGap(142, 142, 142))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpSecundárioLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jpSecundárioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE))
-                        .addContainerGap(20, Short.MAX_VALUE))
-                    .addGroup(jpSecundárioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        jpSecundárioLayout.setVerticalGroup(
-            jpSecundárioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpSecundárioLayout.createSequentialGroup()
-                .addGroup(jpSecundárioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpSecundárioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpSecundárioLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jpSecundárioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpSecundárioLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(16, 16, 16)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpSecundárioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton2)
-                                .addComponent(jButton1)
-                                .addComponent(jButton3)))))
-                .addContainerGap(440, Short.MAX_VALUE))
-        );
+        jtbListaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Cod. Usuário", "Nome Usuário", "Login Usuário", "Senha"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtbListaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtbListaUsuariosMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jtbListaUsuarios);
+
+        jpSecundário.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 640, 100));
 
         jpPrincipal.add(jpSecundário, java.awt.BorderLayout.PAGE_START);
 
@@ -239,7 +232,7 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
         );
 
         pack();
@@ -261,6 +254,11 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jtbListaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbListaUsuariosMouseClicked
+
+       
+    }//GEN-LAST:event_jtbListaUsuariosMouseClicked
                 
     /**
      * Método que controla as opções selecionadas com o duplo clique do
@@ -274,16 +272,16 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable2;
     private javax.swing.JTree jTree1;
     private javax.swing.JLabel jlTextoMsgFeedback;
     private javax.swing.JPanel jpPrincipal;
     private javax.swing.JPanel jpRodape;
     private javax.swing.JPanel jpSecundário;
+    private javax.swing.JTable jtbListaUsuarios;
     // End of variables declaration//GEN-END:variables
     
     /** Variáveis para manipulação do Menu de Opções (Jtree)   */
