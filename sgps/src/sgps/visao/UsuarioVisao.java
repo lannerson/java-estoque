@@ -526,6 +526,8 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
              Usuario.setSenhausuario(jpfSenha.getText());
              Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
              UsuarioControle.alterar(Usuario);           
+             JOptionPane.showMessageDialog(null, "ID"+Usuario.getIdusuario());
+             Usuario = UsuarioControle.getInstanciaUsuario();
              Salvar();
              Limpar();
              MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
@@ -554,7 +556,9 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         flagAlterar = true;
         jbCancelar.setEnabled(true);
         jbSalvar.setEnabled(true);
+         jbSalvar.setEnabled(true);
          this.Usuario = lus.get(jtblConsulta.getSelectedRow());
+         JOptionPane.showMessageDialog(null, "ID"+Usuario.getIdusuario());
          tfDataCadastro.setText(Usuario.getDatacadastrousuario().toString());
          tfLogin.setText(Usuario.getNomeusuario());
          tfNomeComp.setText(Usuario.getNomeusuariocompleto());
@@ -665,8 +669,8 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfNomeComp;
     // End of variables declaration//GEN-END:variables
     String mensagemPadrao = "";
-    Usuario Usuario = null;
     UsuarioControle UsuarioControle;
+    Usuario Usuario = new Usuario(0);
     DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
     GregorianCalendar calendar = new GregorianCalendar();
      List<Usuario> lus = new ArrayList<Usuario>();
