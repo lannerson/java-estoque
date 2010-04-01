@@ -85,7 +85,9 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
      */
     private void ModoEdicao() {
         MensagemRodape.setMensagemRodape(1, jpRodape, mensagemPadrao);
+
         MostrarTela("tela2");
+        Limpar();
         jbNovo.setEnabled(false);
         jbCancelar.setEnabled(true);
         jbSalvar.setEnabled(true);
@@ -96,6 +98,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         
         String data = formatoData.format(calendar.getTime());
         tfDataCadastro.setText(data);
+        tfDataCadastro.setEnabled(false);
         tfLogin.setEnabled(true);
         tfNomeComp.setEnabled(true);
         jpfSenha.setEnabled(true);
@@ -480,12 +483,14 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jbNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoActionPerformed
+
         ModoEdicao();
         
     }//GEN-LAST:event_jbNovoActionPerformed
     
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-            if(Usuario.getIdusuario() == null)
+           /*
+        if(Usuario.getIdusuario() == null)
             {
                 JOptionPane.showMessageDialog(null, "vai incluir");
             try {
@@ -506,14 +511,21 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         }
             }
             else {
-                JOptionPane.showMessageDialog(null, "vai alterar");
+            *
+            */
+              //  JOptionPane.showMessageDialog(null, "vai alterar");
+              
+        //if (Usuario.getIdusuario()==null)
+         if (!flagAlterar)
+                  Usuario = UsuarioControle.getInstanciaUsuario();
              try {
-            // Usuario = UsuarioControle.getInstanciaUsuario();
+            //
+
              Usuario.setNomeusuariocompleto(tfNomeComp.getText());
              Usuario.setNomeusuario(tfLogin.getText());
              Usuario.setSenhausuario(jpfSenha.getText());
              Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
-             UsuarioControle.alterar(Usuario);
+             UsuarioControle.alterar(Usuario);           
              Salvar();
              Limpar();
              MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
@@ -524,7 +536,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
                     + " alterar o registro");
         }
             
-                }
+                
 
         
     }//GEN-LAST:event_jbSalvarActionPerformed
@@ -539,7 +551,9 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbImprimirActionPerformed
             
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-         jbCancelar.setEnabled(true);
+        flagAlterar = true;
+        jbCancelar.setEnabled(true);
+        jbSalvar.setEnabled(true);
          this.Usuario = lus.get(jtblConsulta.getSelectedRow());
          tfDataCadastro.setText(Usuario.getDatacadastrousuario().toString());
          tfLogin.setText(Usuario.getNomeusuario());
@@ -557,6 +571,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tfDataCadastroActionPerformed
 
     private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
+
         UsuarioControle usuarioControle = new UsuarioControle();
         Usuario us = usuarioControle.getInstanciaUsuario();
         EntityManager em= usuarioControle.getEntityManager();
@@ -655,5 +670,6 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
     GregorianCalendar calendar = new GregorianCalendar();
      List<Usuario> lus = new ArrayList<Usuario>();
+     boolean flagAlterar = false;
 }
 
