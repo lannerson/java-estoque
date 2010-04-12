@@ -1,41 +1,27 @@
-/** Classe responsável por disponiblizar os campos/informações dos animais
+/** Classe responsável por disponiblizar os campos/informações dos Usuarios
  * a serem preechidas/visualizadas e manipulados pelo usuário.
  * Criado em Criado em 15/02/2010.
- * @author Daniel Vilas Boas
+ * @author Martins Periera
  */
 package sgps.visao;
 
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import sgps.util.MensagemRodape;
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import sgps.classeMapeada.Usuario;
-import sgps.classeMapeada.Cliente;
-import sgps.classeMapeada.Especie;
-import sgps.classeMapeada.Raca;
-import sgps.conexao.Conexao;
 import sgps.controle.UsuarioControle;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import org.jdesktop.el.impl.lang.ELSupport;
 import sgps.tabelaModelo.TabelaModeloUsuario;
+
 public class UsuarioVisao extends javax.swing.JInternalFrame {
-    
+
     /** Construtor do formulário UsuarioVisao. */
     public UsuarioVisao() {
         initComponents();
@@ -43,7 +29,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         MensagemRodape.setMensagemRodape(1, jpRodape, mensagemPadrao);
         UsuarioControle = new UsuarioControle();
     }
-    
+
     /** Método responsável pela configuração do Formulário (tamanho, título e
      * centralização).
      * @param TituloForm String - Título do Formulário
@@ -59,7 +45,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         this.setLocation((screenSize.width - tamnhoForm.width) / 2,
                 (screenSize.height - tamnhoForm.height - 180) / 2);
     }
-   
+
     /** Método responsável por setar o painel a ser utilizado.
      * @param nome String - Nome do painel.
      */
@@ -67,7 +53,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         CardLayout card = (CardLayout) jpFormulario.getLayout();
         card.show(jpFormulario, nome);
     }
-    
+
     /** Método responsável por disponibilizar os dados do formulário para edição.
      */
     private void ModoConsulta() {
@@ -80,7 +66,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jbImprimir.setEnabled(false);
         jbExportar.setEnabled(false);
     }
-    
+
     /** Método responsável por disponibilizar os dados somente para visualização.
      */
     private void ModoEdicao() {
@@ -95,9 +81,9 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jbExcluir.setEnabled(false);
         jbImprimir.setEnabled(false);
         jbExportar.setEnabled(false);
-        
-        String data = formatoData.format(calendar.getTime());
-        tfDataCadastro.setText(data);
+
+        String data = formatoData.format(calendar.getTime()); // captura a data corrente
+        tfDataCadastro.setText(data); //seta a data atual do sistema no campo
         tfDataCadastro.setEnabled(false);
         tfLogin.setEnabled(true);
         tfNomeComp.setEnabled(true);
@@ -105,7 +91,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jbSalvar.setEnabled(true);
 
     }
-    
+
     /** Método que controla as ações, a serem executadas no Cancelamento de
      * um registro.
      */
@@ -114,7 +100,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         ModoConsulta();
         MensagemRodape.setMensagemRodape(1, jpRodape, "");
     }
-    
+
     /** Método que controla as ações, a serem executadas na Gravação de um
      * registro.
      */
@@ -122,27 +108,40 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         MostrarTela("tela1");
         ModoConsulta();
     }
-    
+
     /** Método que controla as ações, a serem executadas na Alteração de
      * registro.
      */
     private void Alterar() {
         MensagemRodape.setMensagemRodape(1, jpRodape, mensagemPadrao);
-        jbNovo.setEnabled(true);
-        jbCancelar.setEnabled(false);
-        jbSalvar.setEnabled(false);
-        jbAlterar.setEnabled(true);
-        jbExcluir.setEnabled(true);
-        jbImprimir.setEnabled(true);
-        jbExportar.setEnabled(true);
-        tfDataCadastro.setEnabled(true);
-        tfLogin.setEnabled(true);
-        tfNomeComp.setEnabled(true);
-        jpfSenha.setEnabled(true);
-        jbSalvar.setEnabled(true);
+        if (flagAlterar) {
+            jbNovo.setEnabled(true);
+            jbCancelar.setEnabled(true);
+            jbSalvar.setEnabled(true);
+            jbAlterar.setEnabled(false);
+            jbExcluir.setEnabled(true);
+            jbImprimir.setEnabled(false);
+            jbExportar.setEnabled(false);
+            tfDataCadastro.setEnabled(false);
+            tfLogin.setEnabled(true);
+            tfNomeComp.setEnabled(true);
+            jpfSenha.setEnabled(true);
+        } else {
+            jbNovo.setEnabled(true);
+            jbCancelar.setEnabled(false);
+            jbSalvar.setEnabled(false);
+            jbAlterar.setEnabled(true);
+            jbExcluir.setEnabled(true);
+            jbImprimir.setEnabled(false);
+            jbExportar.setEnabled(false);
+            tfDataCadastro.setEnabled(false);
+            tfLogin.setEnabled(true);
+            tfNomeComp.setEnabled(true);
+            jpfSenha.setEnabled(true);
+        }
 
     }
-    
+
     /**
      * Método que controla as ações, a serem executadas na Exclusão de um
      * registro.
@@ -150,22 +149,18 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     private void Excluir() {
         ModoConsulta();
     }
-    
+
     /**
-     * Método responsável por limpar os campos do formulário.
+     * Método responsável por limpar os campos do formulário de usuario.
      */
     private void Limpar() {
         tfDataCadastro.setText("");
         tfLogin.setText("");
         tfNomeComp.setText("");
         jpfSenha.setText("");
-       
+
     }
 
-    /**
-     * Método responsável por desabilitar os campos.
-     */
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -184,7 +179,6 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jftPesquisaDescriao = new javax.swing.JFormattedTextField();
         jbPesquisar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jpManutencao = new javax.swing.JPanel();
         jLNomeCompleto = new javax.swing.JLabel();
         jlDataCadastro = new javax.swing.JLabel();
@@ -213,13 +207,13 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jpPrincipal.setLayout(new java.awt.BorderLayout());
 
         jpRodape.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jpRodape.setMinimumSize(new java.awt.Dimension(760, 14));
-        jpRodape.setPreferredSize(new java.awt.Dimension(760, 10));
+        jpRodape.setMinimumSize(new java.awt.Dimension(760, 5));
+        jpRodape.setPreferredSize(new java.awt.Dimension(760, 5));
         jpRodape.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlTextoMsgFeedback.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jlTextoMsgFeedback.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jlTextoMsgFeedback.setName("Mensagem"); // NOI18N
-        jpRodape.add(jlTextoMsgFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 4, 750, 15));
+        jpRodape.add(jlTextoMsgFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 750, 15));
 
         jpPrincipal.add(jpRodape, java.awt.BorderLayout.CENTER);
 
@@ -267,24 +261,24 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtblConsulta);
 
-        jpConsulta.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 110, 590, 250));
+        jpConsulta.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 110, 590, 110));
 
         jpPesquisaConsulta.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jpPesquisaConsulta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jcomboColunas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nome Usuario" }));
+        jcomboColunas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Login" }));
         jpPesquisaConsulta.add(jcomboColunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 150, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 11));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Informação a Pesquisar:");
         jpPesquisaConsulta.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 11));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Descriçao da Informação:");
         jpPesquisaConsulta.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 14, -1, -1));
         jpPesquisaConsulta.add(jftPesquisaDescriao, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 290, -1));
 
-        jbPesquisar.setFont(new java.awt.Font("Tahoma", 0, 10));
+        jbPesquisar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jbPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Pesquisar.png"))); // NOI18N
         jbPesquisar.setText("Pesquisar");
         jbPesquisar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -296,9 +290,6 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jpPesquisaConsulta.add(jbPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 29, 95, -1));
 
         jpConsulta.add(jpPesquisaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 590, 70));
-
-        jButton1.setText("jButton1");
-        jpConsulta.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
 
         jpFormulario.add(jpConsulta, "tela1");
 
@@ -320,13 +311,14 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jlDataCadastro.setAlignmentY(1100.0F);
         jpManutencao.add(jlDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, -1, -1));
 
+        tfDataCadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         tfDataCadastro.setEnabled(false);
         tfDataCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfDataCadastroActionPerformed(evt);
             }
         });
-        jpManutencao.add(tfDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 50, 80, 20));
+        jpManutencao.add(tfDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 50, 140, 20));
 
         jlUsuario.setFont(new java.awt.Font("Tahoma", 1, 11));
         jlUsuario.setText("Usuário:");
@@ -352,7 +344,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jpManutencao.add(jpfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 230, 100, -1));
 
         tfNomeComp.setEnabled(false);
-        jpManutencao.add(tfNomeComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 100, 210, -1));
+        jpManutencao.add(tfNomeComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 100, 270, -1));
 
         jpFormulario.add(jpManutencao, "tela2");
 
@@ -363,7 +355,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         jpBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Controles ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         jpBotoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jbNovo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jbNovo.setFont(new java.awt.Font("Tahoma", 0, 10));
         jbNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Novo.png"))); // NOI18N
         jbNovo.setText("Novo");
         jbNovo.setFocusable(false);
@@ -376,7 +368,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 30, 95, -1));
 
-        jbSalvar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jbSalvar.setFont(new java.awt.Font("Tahoma", 0, 10));
         jbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Salvar.png"))); // NOI18N
         jbSalvar.setText("Salvar");
         jbSalvar.setEnabled(false);
@@ -389,7 +381,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 90, 95, -1));
 
-        jbCancelar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jbCancelar.setFont(new java.awt.Font("Tahoma", 0, 10));
         jbCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Cancelar.png"))); // NOI18N
         jbCancelar.setText("Cancelar");
         jbCancelar.setEnabled(false);
@@ -403,7 +395,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 120, 95, -1));
 
-        jbExcluir.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jbExcluir.setFont(new java.awt.Font("Tahoma", 0, 10));
         jbExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Excluir.png"))); // NOI18N
         jbExcluir.setText("Excluir");
         jbExcluir.setEnabled(false);
@@ -416,7 +408,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 150, 95, -1));
 
-        jbAlterar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jbAlterar.setFont(new java.awt.Font("Tahoma", 0, 10));
         jbAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Alterar.png"))); // NOI18N
         jbAlterar.setText("Alterar");
         jbAlterar.setEnabled(false);
@@ -442,7 +434,7 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 180, 95, -1));
 
-        jbExportar.setFont(new java.awt.Font("Tahoma", 0, 10));
+        jbExportar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jbExportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/exportar.png"))); // NOI18N
         jbExportar.setText("Exportar");
         jbExportar.setEnabled(false);
@@ -476,94 +468,66 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jbNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoActionPerformed
 
         ModoEdicao();
-        
+
     }//GEN-LAST:event_jbNovoActionPerformed
-    
+
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-           /*
-        if(Usuario.getIdusuario() == null)
-            {
-                JOptionPane.showMessageDialog(null, "vai incluir");
-            try {
-             Usuario = UsuarioControle.getInstanciaUsuario();
-             Usuario.setNomeusuariocompleto(tfNomeComp.getText());
-             Usuario.setNomeusuario(tfLogin.getText());
-             Usuario.setSenhausuario(jpfSenha.getText());
-             Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
-             UsuarioControle.salvar(Usuario);
-             Salvar();
-             Limpar();
-             MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
-                    + "com Sucesso");   
-        } catch (Exception e) {
-            e.printStackTrace();
-            MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
-                    + " gravar o registro");
+
+        if (!flagAlterar) {
+            Usuario = UsuarioControle.getInstanciaUsuario();
         }
-            }
-            else {
-            *
-            */
-              //  JOptionPane.showMessageDialog(null, "vai alterar");
-              
-        //if (Usuario.getIdusuario()==null)
-         if (!flagAlterar)
-                  Usuario = UsuarioControle.getInstanciaUsuario();
-             try {
+        try {
             //
 
-             Usuario.setNomeusuariocompleto(tfNomeComp.getText());
-             Usuario.setNomeusuario(tfLogin.getText());
-             Usuario.setSenhausuario(jpfSenha.getText());
-             Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
-             UsuarioControle.alterar(Usuario);           
-             JOptionPane.showMessageDialog(null, "ID"+Usuario.getIdusuario());
-             Usuario = UsuarioControle.getInstanciaUsuario();
-             Salvar();
-             Limpar();
-             MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
-                    + "com Sucesso");   
-            } catch (Exception e) {
+            Usuario.setNomeusuariocompleto(tfNomeComp.getText());
+            Usuario.setNomeusuario(tfLogin.getText());
+            Usuario.setSenhausuario(jpfSenha.getText());
+            Usuario.setDatacadastrousuario(new java.sql.Date(formatoData.parse(tfDataCadastro.getText()).getTime()));
+            UsuarioControle.alterar(Usuario);
+            Salvar();
+            flagAlterar = false;
+            Limpar();
+            MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
+                    + "com Sucesso");
+        } catch (Exception e) {
             e.printStackTrace();
             MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
                     + " alterar o registro");
         }
-            
-                
 
-        
+
+
+
     }//GEN-LAST:event_jbSalvarActionPerformed
-    
+
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
-        
+
         ModoConsulta();
         Cancelar();
+        flagAlterar = false;
     }//GEN-LAST:event_jbCancelarActionPerformed
-    
+
     private void jbImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbImprimirActionPerformed
     }//GEN-LAST:event_jbImprimirActionPerformed
-            
+
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
         flagAlterar = true;
-        jbCancelar.setEnabled(true);
-        jbSalvar.setEnabled(true);
-         jbSalvar.setEnabled(true);
-         this.Usuario = lus.get(jtblConsulta.getSelectedRow());
-         JOptionPane.showMessageDialog(null, "ID"+Usuario.getIdusuario());
-         tfDataCadastro.setText(Usuario.getDatacadastrousuario().toString());
-         tfLogin.setText(Usuario.getNomeusuario());
-         tfNomeComp.setText(Usuario.getNomeusuariocompleto());
-         jpfSenha.setText(Usuario.getSenhausuario());
-         MostrarTela("tela2");
+        Alterar();
+        this.Usuario = lus.get(jtblConsulta.getSelectedRow());
+        tfDataCadastro.setText(Usuario.getDatacadastrousuario().toLocaleString());
+        tfLogin.setText(Usuario.getNomeusuario());
+        tfNomeComp.setText(Usuario.getNomeusuariocompleto());
+        jpfSenha.setText(Usuario.getSenhausuario());
+        MostrarTela("tela2");
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void tfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLoginActionPerformed
@@ -577,64 +541,48 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
 
         UsuarioControle usuarioControle = new UsuarioControle();
-        Usuario us = usuarioControle.getInstanciaUsuario();
-        EntityManager em= usuarioControle.getEntityManager();
+        EntityManager em = usuarioControle.getEntityManager();
         Query query;
         query = em.createNamedQuery("Usuario.findByNomeusuario");
         query.setParameter("nomeusuario", jftPesquisaDescriao.getText());
-       
-        List<Usuario> lus2 = new ArrayList<Usuario>();
         lus = query.getResultList();
+        if (lus.isEmpty()) {
+            ModoConsulta();
+        }
         TabelaModeloUsuario tabelaUsuario = new TabelaModeloUsuario(lus);
         jtblConsulta.setModel(tabelaUsuario);
-        jbAlterar.setEnabled(true);
-        jbExcluir.setEnabled(false);
-        
-            
+
+
+
 }//GEN-LAST:event_jbPesquisarActionPerformed
 
     private void jtblConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblConsultaMouseClicked
 
-      Alterar();
-      jbSalvar.setEnabled(false);
-     
+        Alterar();
     }//GEN-LAST:event_jtblConsultaMouseClicked
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
 
-        try{
-
-        this.Usuario = lus.get(jtblConsulta.getSelectedRow());
-        
-        int opcao_escolhida = JOptionPane.showConfirmDialog(null,"Deseja excluir o Usuário: "+Usuario.getNomeusuario(),"Exclusao ", JOptionPane.YES_NO_OPTION);
-          if(opcao_escolhida==JOptionPane.YES_OPTION)
-          {
-
-
-            if ( UsuarioControle.excluir(Usuario.getIdusuario()))
-            {
-                //JOptionPane.showMessageDialog(null,"Usuário excluído com sucesso!");
-                MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
+        try {
+            this.Usuario = lus.get(jtblConsulta.getSelectedRow());
+            int opcao_escolhida = JOptionPane.showConfirmDialog(null, "Deseja excluir o Usuário: " + Usuario.getNomeusuario(), "Exclusao ", JOptionPane.YES_NO_OPTION);
+            if (opcao_escolhida == JOptionPane.YES_OPTION) {
+                if (UsuarioControle.excluir(Usuario.getIdusuario())) {
+                    MensagemRodape.setMensagemRodape(3, jpRodape, "Operação efetuada "
                             + "com Sucesso");
-                
+                }
+            } else {
+                return;
             }
 
-          }
-          else
-             return;
-
-       }
-       catch(Exception e)
-       {
+        } catch (Exception e) {
             e.printStackTrace();
-             MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
+            MensagemRodape.setMensagemRodape(2, jpRodape, "Não foi possível"
                     + " gravar o registro");
-       }
-                  
+        }
+
     }//GEN-LAST:event_jbExcluirActionPerformed
-            
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLNomeCompleto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -669,11 +617,11 @@ public class UsuarioVisao extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfNomeComp;
     // End of variables declaration//GEN-END:variables
     String mensagemPadrao = "";
+    Usuario Usuario = null;
     UsuarioControle UsuarioControle;
-    Usuario Usuario = new Usuario(0);
     DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
     GregorianCalendar calendar = new GregorianCalendar();
-     List<Usuario> lus = new ArrayList<Usuario>();
-     boolean flagAlterar = false;
+    List<Usuario> lus = new ArrayList<Usuario>();
+    boolean flagAlterar = false;
 }
 
