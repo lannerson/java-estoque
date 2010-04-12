@@ -8,8 +8,8 @@
  *
  * Created on 16/03/2010, 17:41:27
  */
-
 package sgps.visao;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -18,8 +18,6 @@ import javax.persistence.Query;
 import javax.swing.JOptionPane;
 import sgps.classeMapeada.Usuario;
 import sgps.controle.*;
-
-
 
 /**
  *
@@ -35,8 +33,6 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         this.transferFocusUpCycle();
         this.toFront();
     }
-
-   
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -122,48 +118,15 @@ public class LoginVisao extends javax.swing.JInternalFrame {
 }//GEN-LAST:event_jbSairActionPerformed
 
     private void jbOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkActionPerformed
-        UsuarioControle usuarioControle = new UsuarioControle();
-        Usuario us = usuarioControle.getInstanciaUsuario();
-        EntityManager em= usuarioControle.getEntityManager();
-        Query query;
-        query = em.createNamedQuery("Usuario.verificaLogin");
-        query.setParameter("nomeusuario", tfLogin.getText());
-        query.setParameter("senhausuario", tfSenha.getText());
-        List<Usuario> lus = new ArrayList<Usuario>();
-        lus = query.getResultList();
-        if (lus.size() > 0) {
-            JOptionPane.showMessageDialog(null, "usuario existente");
-            // String args[] = new String[1];
-            //args[0] = lus.get(0).ge.toString();
-            //Menu.main(args);
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuário/Senha incorretos");
-            dispose();
-        }
-        /*
-         * query = entityManager.createNamedQuery("Funcionario.verificaLogin");
-        query.setParameter("loginFuncionario", jTextField1.getText());
-        query.setParameter("senhaFuncionario", EncriptaSenha.encripta(jPasswordField1.getText()));
-        List<Funcionario> data = query.getResultList();
-
-        if (data.size() > 0) {
-            String args[] = new String[1];
-            args[0] = data.get(0).getCodFuncionario().toString();
-            Menu.main(args);
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuário/Senha incorretos");
-            dispose();
-        }
-
-}
-         *
-         */
-
+        AcessoControle acessoControle = new AcessoControle();
+            if (acessoControle.verificaLogin(tfLogin.getText(), tfSenha.getText())) {
+                JOptionPane.showMessageDialog(null, "usuario habilitado");
+                dispose();
+            }else {
+                JOptionPane.showMessageDialog(null, "usuário ou senha incorreto");
+                System.exit(0);
+            }
     }//GEN-LAST:event_jbOkActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
