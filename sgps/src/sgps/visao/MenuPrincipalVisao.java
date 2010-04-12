@@ -7,11 +7,11 @@
  * @author Daniel Vilas Boas
  */
 package sgps.visao;
+
 import sgps.util.JDesktopPanePersonalizado;
 import sgps.util.VerificaFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-
 
 public class MenuPrincipalVisao extends javax.swing.JFrame {
 
@@ -44,6 +44,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         jmAjuda = new javax.swing.JMenu();
         jmSistema = new javax.swing.JMenu();
         jmFinalizarSistema = new javax.swing.JMenuItem();
+        jmConfroleAcessoUsuario = new javax.swing.JMenuItem();
 
         jButton1.setText("jButton1");
 
@@ -147,6 +148,14 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         });
         jmSistema.add(jmFinalizarSistema);
 
+        jmConfroleAcessoUsuario.setText("Controle Acesso Usuário");
+        jmConfroleAcessoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmConfroleAcessoUsuarioActionPerformed(evt);
+            }
+        });
+        jmSistema.add(jmConfroleAcessoUsuario);
+
         mbMenu.add(jmSistema);
 
         setJMenuBar(mbMenu);
@@ -188,11 +197,11 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     }//GEN-LAST:event_miCadUsuarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-    // dpPrincipal.add(new LoginVisao(this));   // TODO add your handling code here:
+         dpPrincipal.add(new LoginVisao(this));   // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
     private void miCadAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadAnimalActionPerformed
-      try {
+        try {
             if (VerificaFrame.verificaFrame(dpPrincipal, animalVisao) != true) {
                 animalVisao = new AnimalVisao();
                 dpPrincipal.add(animalVisao);
@@ -205,15 +214,31 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miCadAnimalActionPerformed
 
+    private void jmConfroleAcessoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmConfroleAcessoUsuarioActionPerformed
+        try {
+            if (VerificaFrame.verificaFrame(dpPrincipal, controleAcessoVisao) != true) {
+                controleAcessoVisao = new ControleAcessoVisao();
+                dpPrincipal.add(controleAcessoVisao);
+            } else {
+                controleAcessoVisao.setIcon(false);
+            }
+            controleAcessoVisao.setVisible(true);
+        } catch (Exception ey) {
+            ey.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jmConfroleAcessoUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {                
+
+            public void run() {
                 try {
-                   //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-                  // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+                    //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+                    // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -227,6 +252,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     private javax.swing.JLabel jlUsuarioLogado;
     private javax.swing.JMenu jmAjuda;
     private javax.swing.JMenu jmCadastro;
+    private javax.swing.JMenuItem jmConfroleAcessoUsuario;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenuItem jmFinalizarSistema;
     private javax.swing.JMenu jmMovimentacao;
@@ -244,5 +270,6 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
      * Declarações de Variáveis do Sistema *
      */
     UsuarioVisao usuarioVisao;
-    AnimalVisao  animalVisao;
+    AnimalVisao animalVisao;
+    ControleAcessoVisao controleAcessoVisao;
 }
