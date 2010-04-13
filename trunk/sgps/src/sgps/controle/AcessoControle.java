@@ -8,8 +8,6 @@ package sgps.controle;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import sgps.classeMapeada.Acessousuario;
 import sgps.classeMapeada.Usuario;
 
@@ -37,9 +35,11 @@ public class AcessoControle extends ControleAbstrato<Acessousuario, Integer> {
      * @return listaAcesso - lista de acesso de usuario
      */
     public List<Acessousuario> listaDeAcesso(String senha, String login) {//este métado ainda não foi implementado
-
+        Usuario us = new Usuario();
+        UsuarioControle usuarioControle = new UsuarioControle();
+        us = usuarioControle.buscaUsuarioSenha(login, senha);
         List<Acessousuario> listaAcesso = new ArrayList<Acessousuario>();
-
+        listaAcesso = us.getAcessousuarioList();
         return listaAcesso;
     }
 
@@ -60,14 +60,8 @@ public class AcessoControle extends ControleAbstrato<Acessousuario, Integer> {
 
     public boolean verificaLogin(String login, String senha) {
         UsuarioControle usuarioControle = new UsuarioControle();
-        Usuario us = usuarioControle.getInstanciaUsuario();
-        EntityManager em = usuarioControle.getEntityManager();
-        Query query;
-        query = em.createNamedQuery("Usuario.verificaLogin");
-        query.setParameter("nomeusuario", login);
-        query.setParameter("senhausuario", senha);
         List<Usuario> lus = new ArrayList<Usuario>();
-        lus = query.getResultList();
+        lus = usuarioControle.buscaUsuarioSenhaList(login, senha);
         if (lus.size() > 0) {
             return true;
         } else {

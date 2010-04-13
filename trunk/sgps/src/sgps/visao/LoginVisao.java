@@ -11,12 +11,9 @@
 package sgps.visao;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.swing.JOptionPane;
-import sgps.classeMapeada.Usuario;
+import sgps.classeMapeada.Acessousuario;
 import sgps.controle.*;
 
 /**
@@ -70,20 +67,20 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         jpFundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Logo_login.png"))); // NOI18N
-        jpFundo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, -1));
+        jpFundo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 180, 130));
 
         jpDados.setBackground(new java.awt.Color(204, 204, 204));
         jpDados.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, new java.awt.Color(204, 204, 204), null, new java.awt.Color(204, 204, 204)));
         jpDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jlLogin.setFont(new java.awt.Font("Tahoma", 1, 14));
         jlLogin.setText("Login:");
         jpDados.add(jlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        tfLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfLogin.setFont(new java.awt.Font("Tahoma", 0, 14));
         jpDados.add(tfLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel3.setText("Senha:");
         jpDados.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
@@ -119,8 +116,11 @@ public class LoginVisao extends javax.swing.JInternalFrame {
 
     private void jbOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkActionPerformed
         AcessoControle acessoControle = new AcessoControle();
+        List<Acessousuario> listaAcesso = new ArrayList<Acessousuario>();
             if (acessoControle.verificaLogin(tfLogin.getText(), tfSenha.getText())) {
                 JOptionPane.showMessageDialog(null, "usuario habilitado");
+                listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
+
                 dispose();
             }else {
                 JOptionPane.showMessageDialog(null, "usuário ou senha incorreto");
