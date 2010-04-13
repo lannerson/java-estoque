@@ -454,7 +454,7 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 30, 95, -1));
 
-        jbSalvar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jbSalvar.setFont(new java.awt.Font("Tahoma", 0, 10));
         jbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/Salvar.png"))); // NOI18N
         jbSalvar.setText("Salvar");
         jbSalvar.setEnabled(false);
@@ -515,7 +515,7 @@ public class AnimalVisao extends javax.swing.JInternalFrame {
         });
         jpBotoes.add(jbImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 180, 95, -1));
 
-        jbExportar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jbExportar.setFont(new java.awt.Font("Tahoma", 0, 10));
         jbExportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sgps/imagens/exportar.png"))); // NOI18N
         jbExportar.setText("Exportar");
         jbExportar.setEnabled(false);

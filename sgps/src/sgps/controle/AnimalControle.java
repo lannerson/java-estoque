@@ -6,17 +6,13 @@
  */
 package sgps.controle;
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Level;
 import javax.persistence.Query;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 import sgps.classeMapeada.Animal;
 import sgps.classeMapeada.Cliente;
 import sgps.classeMapeada.Especie;
 import sgps.classeMapeada.Raca;
-import sgps.conexao.Conexao;
 
 public class AnimalControle extends ControleAbstrato<Animal, Integer> {
 

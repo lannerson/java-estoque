@@ -10,8 +10,6 @@ package sgps.visao;
 
 import sgps.util.JDesktopPanePersonalizado;
 import sgps.util.VerificaFrame;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 
 public class MenuPrincipalVisao extends javax.swing.JFrame {
 
