@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import sgps.classeMapeada.Acessousuario;
+import sgps.classeMapeada.Telasistema;
 import sgps.controle.*;
+import sgps.visao.MenuPrincipalVisao;
 
 /**
  *
@@ -117,15 +119,21 @@ public class LoginVisao extends javax.swing.JInternalFrame {
     private void jbOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkActionPerformed
         AcessoControle acessoControle = new AcessoControle();
         List<Acessousuario> listaAcesso = new ArrayList<Acessousuario>();
-            if (acessoControle.verificaLogin(tfLogin.getText(), tfSenha.getText())) {
-                JOptionPane.showMessageDialog(null, "usuario habilitado");
-                listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
+        Telasistema tela = new Telasistema();
+        MenuPrincipalVisao menuPrincipal = new MenuPrincipalVisao();
 
-                dispose();
-            }else {
-                JOptionPane.showMessageDialog(null, "usuário ou senha incorreto");
-                System.exit(0);
-            }
+        if (acessoControle.verificaLogin(tfLogin.getText(), tfSenha.getText())) {
+            JOptionPane.showMessageDialog(null, "usuario habilitado");
+            listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
+           
+                new MenuPrincipalVisao(listaAcesso).setVisible(true);
+    //         menuPrincipal.miCadUsuario.setEnabled(false);
+     //        menuPrincipal.habilitaMenu(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "usuário ou senha incorreto");
+            System.exit(0);
+        }
     }//GEN-LAST:event_jbOkActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
