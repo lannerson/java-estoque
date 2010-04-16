@@ -8,6 +8,14 @@
  */
 package sgps.visao;
 
+import java.lang.String;
+import java.util.List;
+import java.util.Locale;
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import sgps.classeMapeada.Acessousuario;
+import sgps.classeMapeada.Telasistema;
+import sgps.controle.AcessoControle;
 import sgps.util.JDesktopPanePersonalizado;
 import sgps.util.VerificaFrame;
 
@@ -15,7 +23,36 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
 
     /** Construtor do formulário  */
     public MenuPrincipalVisao() {
+        
         initComponents();
+    
+
+    }
+
+
+    public MenuPrincipalVisao(List<Acessousuario> listaAcesso) {
+
+        initComponents();
+        String caso;
+         for (Acessousuario acesso : listaAcesso) {
+             tela = acesso.getTelasistema();
+
+                miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
+                /*
+                switch (caso)
+        {
+            case 0: dia_semana= "domingo"; break;
+            case 1: dia_semana= "segunda-feira"; break;
+            case 2: dia_semana= "terca-feira"; break;
+            case 3: dia_semana= "quarta-feira"; break;
+            case 4: dia_semana= "quinta-feira"; break;
+            case 5: dia_semana= "sexta-feira"; break;
+            case 6: dia_semana= "sabado-feira"; break;
+
+        }
+                 * 
+                 */
+            }
 
     }
 
@@ -32,6 +69,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         String nomeImagem = "Logo.png";
         dpPrincipal = new JDesktopPanePersonalizado(caminhoImagem, nomeImagem);
         jpBarraBotoes = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         mbMenu = new javax.swing.JMenuBar();
         jmCadastro = new javax.swing.JMenu();
         miCadAnimal = new javax.swing.JMenuItem();
@@ -82,22 +120,31 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         );
         jpAreaTrabalhoLayout.setVerticalGroup(
             jpAreaTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
         );
 
         jpFundoPrincipal.add(jpAreaTrabalho, java.awt.BorderLayout.CENTER);
 
         jpBarraBotoes.setBackground(new java.awt.Color(173, 216, 230));
 
+        jButton2.setText("jButton2");
+        jButton2.setEnabled(false);
+
         javax.swing.GroupLayout jpBarraBotoesLayout = new javax.swing.GroupLayout(jpBarraBotoes);
         jpBarraBotoes.setLayout(jpBarraBotoesLayout);
         jpBarraBotoesLayout.setHorizontalGroup(
             jpBarraBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBarraBotoesLayout.createSequentialGroup()
+                .addContainerGap(332, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(152, 152, 152))
         );
         jpBarraBotoesLayout.setVerticalGroup(
             jpBarraBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 51, Short.MAX_VALUE)
+            .addGroup(jpBarraBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpFundoPrincipal.add(jpBarraBotoes, java.awt.BorderLayout.PAGE_START);
@@ -105,6 +152,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         jmCadastro.setText("Cadastro");
 
         miCadAnimal.setText("Animal");
+        miCadAnimal.setEnabled(false);
         miCadAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miCadAnimalActionPerformed(evt);
@@ -114,6 +162,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
 
         miCadUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         miCadUsuario.setText("Usuário do Sistema");
+        miCadUsuario.setEnabled(false);
         miCadUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miCadUsuarioActionPerformed(evt);
@@ -241,15 +290,24 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
                     e.printStackTrace();
                 }
                 new MenuPrincipalVisao().setVisible(true);
+                
             }
         });
     }
+
+    public void habilitaMenu(){
+    miCadUsuario.setEnabled(false);
+    jButton2.setEnabled(true);
+
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dpPrincipal;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jlUsuarioLogado;
     private javax.swing.JMenu jmAjuda;
-    private javax.swing.JMenu jmCadastro;
+    public javax.swing.JMenu jmCadastro;
     private javax.swing.JMenuItem jmConfroleAcessoUsuario;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenuItem jmFinalizarSistema;
@@ -261,8 +319,8 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     private javax.swing.JPanel jpFundoPrincipal;
     private javax.swing.JPanel jpRodape;
     private javax.swing.JMenuBar mbMenu;
-    private javax.swing.JMenuItem miCadAnimal;
-    private javax.swing.JMenuItem miCadUsuario;
+    public javax.swing.JMenuItem miCadAnimal;
+    public javax.swing.JMenuItem miCadUsuario;
     // End of variables declaration//GEN-END:variables
     /**
      * Declarações de Variáveis do Sistema *
@@ -270,4 +328,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     UsuarioVisao usuarioVisao;
     AnimalVisao animalVisao;
     ControleAcessoVisao controleAcessoVisao;
+    AcessoControle acessoControle = new AcessoControle();
+    Telasistema tela = new Telasistema();
+
 }
