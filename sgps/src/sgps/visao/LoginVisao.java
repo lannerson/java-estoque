@@ -12,6 +12,7 @@ package sgps.visao;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import sgps.classeMapeada.Acessousuario;
 import sgps.classeMapeada.Telasistema;
@@ -121,18 +122,17 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         List<Acessousuario> listaAcesso = new ArrayList<Acessousuario>();
         Telasistema tela = new Telasistema();
         MenuPrincipalVisao menuPrincipal = new MenuPrincipalVisao();
-
+                
+               
         if (acessoControle.verificaLogin(tfLogin.getText(), tfSenha.getText())) {
             JOptionPane.showMessageDialog(null, "usuario habilitado");
             listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
-           
                 new MenuPrincipalVisao(listaAcesso).setVisible(true);
-    //         menuPrincipal.miCadUsuario.setEnabled(false);
-     //        menuPrincipal.habilitaMenu(true);
-            dispose();
+            this.dispose();
+            //System.exit(0);
         } else {
             JOptionPane.showMessageDialog(null, "usuário ou senha incorreto");
-            System.exit(0);
+           
         }
     }//GEN-LAST:event_jbOkActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
