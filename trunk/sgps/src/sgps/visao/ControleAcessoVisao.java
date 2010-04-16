@@ -9,18 +9,10 @@ package sgps.visao;
 
 import sgps.util.MensagemRodape;
 import sgps.util.MenusTreeModel;
-import java.awt.CardLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import sgps.classeMapeada.Animal;
 import sgps.classeMapeada.Usuario;
