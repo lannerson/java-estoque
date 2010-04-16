@@ -295,12 +295,21 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         });
     }
 
-    public void habilitaMenu(){
-    miCadUsuario.setEnabled(false);
-    jButton2.setEnabled(true);
+     public void habilitaMenu(List<Acessousuario> listaAcesso) {
 
-    }
-
+        for (Acessousuario acesso : listaAcesso) {
+            tela = acesso.getTelasistema();
+            miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
+            switch (tela.getIdtelasistema()) {
+                case 1:
+                   miCadAnimal.setEnabled(acesso.getFlagtipoacesso());
+                case 2:
+                     miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
+                     break;
+            }
+        }
+     }
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dpPrincipal;
     private javax.swing.JButton jButton1;
