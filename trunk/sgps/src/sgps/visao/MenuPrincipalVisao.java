@@ -9,6 +9,8 @@
 package sgps.visao;
 
 import java.lang.String;
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.JButton;
@@ -25,7 +27,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     public MenuPrincipalVisao() {
         
         initComponents();
-    
+        
 
     }
 
@@ -33,7 +35,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     public MenuPrincipalVisao(List<Acessousuario> listaAcesso) {
 
         initComponents();
-        habilitaMenu(listaAcesso);
+        habilitaMenu();
 
     }
 
@@ -224,6 +226,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
          dpPrincipal.add(new LoginVisao(this));   // TODO add your handling code here:
+
     }//GEN-LAST:event_formWindowOpened
 
     private void miCadAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadAnimalActionPerformed
@@ -258,7 +261,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
@@ -268,14 +271,24 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+               
                 new MenuPrincipalVisao().setVisible(true);
-                
+               
             }
         });
     }
 
-     public void habilitaMenu(List<Acessousuario> listaAcesso) {
-
+     public void habilitaMenu() {
+         List<Acessousuario> listaAcesso = new ArrayList<Acessousuario>();
+         List<String> usuarioSenha = new ArrayList<String>();
+         LoginVisao loginVisao = new LoginVisao();
+         usuarioSenha = loginVisao.retornaUsuarioSenha();
+         String usuario;
+         String senha;
+         usuario  = usuarioSenha.get(0);
+         senha  = usuarioSenha.get(1);
+                AcessoControle acessoControle = new AcessoControle();
+                listaAcesso = acessoControle.listaDeAcesso(usuario, senha);
         for (Acessousuario acesso : listaAcesso) {
             tela = acesso.getTelasistema();
             switch (tela.getIdtelasistema()) {
@@ -297,7 +310,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     private javax.swing.JLabel jlUsuarioLogado;
     private javax.swing.JMenu jmAjuda;
     public javax.swing.JMenu jmCadastro;
-    private javax.swing.JMenuItem jmConfroleAcessoUsuario;
+    public javax.swing.JMenuItem jmConfroleAcessoUsuario;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenuItem jmFinalizarSistema;
     private javax.swing.JMenu jmMovimentacao;
@@ -319,5 +332,6 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     ControleAcessoVisao controleAcessoVisao;
     AcessoControle acessoControle = new AcessoControle();
     Telasistema tela = new Telasistema();
+
 
 }

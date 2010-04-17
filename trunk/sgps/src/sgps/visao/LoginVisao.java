@@ -34,6 +34,10 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         this.toFront();
     }
 
+     public LoginVisao() {
+
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -117,23 +121,45 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         System.exit(0);
 }//GEN-LAST:event_jbSairActionPerformed
 
+   public List<String> retornaUsuarioSenha(){
+        List<String> usuarioSenhaList = new ArrayList<String>();
+         usuarioSenhaList.add(tfLogin.getText());
+         usuarioSenhaList.add(tfLogin.getText());
+        return usuarioSenhaList;
+
+   }
+
+
     private void jbOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkActionPerformed
         AcessoControle acessoControle = new AcessoControle();
         List<Acessousuario> listaAcesso = new ArrayList<Acessousuario>();
-        Telasistema tela = new Telasistema();
-        MenuPrincipalVisao menuPrincipal = new MenuPrincipalVisao();
-                
-               
+        Telasistema tela = new Telasistema();        
         if (acessoControle.verificaLogin(tfLogin.getText(), tfSenha.getText())) {
             JOptionPane.showMessageDialog(null, "usuario habilitado");
-            listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
-                new MenuPrincipalVisao(listaAcesso).setVisible(true);
+         LoginVisao loginVisao = new LoginVisao();
+                listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
+        for (Acessousuario acesso : listaAcesso) {
+            tela = acesso.getTelasistema();
+            switch (tela.getIdtelasistema()) {
+                case 1:
+                   principal.miCadAnimal.setEnabled(acesso.getFlagtipoacesso());
+                case 2:
+                    principal.miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
+                case 3:
+                     principal.jmConfroleAcessoUsuario.setEnabled(acesso.getFlagtipoacesso());
+                     break;
+            }
+        }
+            
             this.dispose();
-            //System.exit(0);
+           
         } else {
             JOptionPane.showMessageDialog(null, "usuário ou senha incorreto");
            
         }
+
+
+
     }//GEN-LAST:event_jbOkActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -147,4 +173,5 @@ public class LoginVisao extends javax.swing.JInternalFrame {
     private javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
     MenuPrincipalVisao principal;
+    public boolean flagOk = false;
 }
