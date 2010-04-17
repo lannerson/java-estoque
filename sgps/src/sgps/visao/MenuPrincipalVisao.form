@@ -20,7 +20,6 @@
             <MenuItem class="javax.swing.JMenuItem" name="miCadAnimal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Animal"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadAnimalActionPerformed"/>
@@ -35,7 +34,6 @@
                   <KeyStroke key="Ctrl+U"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rio do Sistema"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadUsuarioActionPerformed"/>

@@ -33,26 +33,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     public MenuPrincipalVisao(List<Acessousuario> listaAcesso) {
 
         initComponents();
-        String caso;
-         for (Acessousuario acesso : listaAcesso) {
-             tela = acesso.getTelasistema();
-
-                miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
-                /*
-                switch (caso)
-        {
-            case 0: dia_semana= "domingo"; break;
-            case 1: dia_semana= "segunda-feira"; break;
-            case 2: dia_semana= "terca-feira"; break;
-            case 3: dia_semana= "quarta-feira"; break;
-            case 4: dia_semana= "quinta-feira"; break;
-            case 5: dia_semana= "sexta-feira"; break;
-            case 6: dia_semana= "sabado-feira"; break;
-
-        }
-                 * 
-                 */
-            }
+        habilitaMenu(listaAcesso);
 
     }
 
@@ -152,7 +133,6 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         jmCadastro.setText("Cadastro");
 
         miCadAnimal.setText("Animal");
-        miCadAnimal.setEnabled(false);
         miCadAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miCadAnimalActionPerformed(evt);
@@ -162,7 +142,6 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
 
         miCadUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         miCadUsuario.setText("Usuário do Sistema");
-        miCadUsuario.setEnabled(false);
         miCadUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miCadUsuarioActionPerformed(evt);
@@ -299,12 +278,13 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
 
         for (Acessousuario acesso : listaAcesso) {
             tela = acesso.getTelasistema();
-            miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
             switch (tela.getIdtelasistema()) {
                 case 1:
                    miCadAnimal.setEnabled(acesso.getFlagtipoacesso());
                 case 2:
                      miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
+                case 3:
+                     jmConfroleAcessoUsuario.setEnabled(acesso.getFlagtipoacesso());
                      break;
             }
         }
