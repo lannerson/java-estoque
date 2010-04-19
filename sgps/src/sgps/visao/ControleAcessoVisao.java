@@ -72,7 +72,7 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         arvoreOpcoesMenu.adicionaNoRoot(consulta);
         arvoreOpcoesMenu.adicionaNoRoot(manutencao);
         arvoreOpcoesMenu.adicionaNo(root, new DefaultMutableTreeNode("Sair"));
-        
+
     }
     
 
@@ -86,7 +86,7 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         jlTextoMsgFeedback = new javax.swing.JLabel();
         jpSecundário = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jtMenus = new javax.swing.JTree();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -118,10 +118,15 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         jpSecundário.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpSecundário.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTree1.setBackground(new java.awt.Color(173, 216, 230));
-        jScrollPane2.setViewportView(jTree1);
+        jtMenus.setBackground(new java.awt.Color(173, 216, 230));
+        jtMenus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selecionaMenu(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jtMenus);
 
-        jpSecundário.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 90, 394));
+        jpSecundário.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 150, 394));
 
         jButton1.setText("Conceder");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,10 +134,10 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jpSecundário.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 345, -1, -1));
+        jpSecundário.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
 
         jButton2.setText("Retirar");
-        jpSecundário.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 345, -1, -1));
+        jpSecundário.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(173, 216, 230));
 
@@ -140,14 +145,14 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 44, Short.MAX_VALUE)
         );
 
-        jpSecundário.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 640, -1));
+        jpSecundário.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 600, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -162,14 +167,14 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jTable2);
 
-        jpSecundário.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 211, 637, 100));
+        jpSecundário.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 211, 600, 100));
 
         jButton3.setText("Confirmar");
-        jpSecundário.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 345, -1, -1));
+        jpSecundário.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel3.setText("Níveis pré-definidos");
-        jpSecundário.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
+        jpSecundário.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Operacional", "Administrativo", "Gerencial", "Customizado" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +182,7 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jpSecundário.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 375, 120, -1));
+        jpSecundário.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 120, -1));
 
         jtbListaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -212,7 +217,7 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         });
         jScrollPane4.setViewportView(jtbListaUsuarios);
 
-        jpSecundário.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 640, 100));
+        jpSecundário.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 600, 100));
 
         jpPrincipal.add(jpSecundário, java.awt.BorderLayout.PAGE_START);
 
@@ -251,7 +256,27 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
 
        
     }//GEN-LAST:event_jtbListaUsuariosMouseClicked
-                
+
+    private void selecionaMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selecionaMenu
+
+     String selecionado;
+        if ((jtMenus.getSelectionPath() != null) && (jtMenus.isEnabled()) ) {
+            if (evt.getClickCount() == 2) {
+                selecionado = jtMenus.getLastSelectedPathComponent().toString();
+                if (selecionado.equals("Consulta")) {
+
+
+                } else if (selecionado.equals("Manutenção")) {
+
+                } else if (selecionado.equals("Sair")) {
+                    dispose();
+                }
+            }
+        } else {
+            // JOptionPane.showMessageDialog(null, "Quantidade de clicks " + evt.getClickCount());
+        }
+    }//GEN-LAST:event_selecionaMenu
+              
     /**
      * Método que controla as opções selecionadas com o duplo clique do
      * mouse, no Menu de Opções
@@ -268,11 +293,11 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTree jTree1;
     private javax.swing.JLabel jlTextoMsgFeedback;
     private javax.swing.JPanel jpPrincipal;
     private javax.swing.JPanel jpRodape;
     private javax.swing.JPanel jpSecundário;
+    private javax.swing.JTree jtMenus;
     private javax.swing.JTable jtbListaUsuarios;
     // End of variables declaration//GEN-END:variables
     
