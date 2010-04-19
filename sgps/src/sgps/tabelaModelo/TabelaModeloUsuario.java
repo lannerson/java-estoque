@@ -55,6 +55,7 @@ public class TabelaModeloUsuario extends AbstractTableModel {
 
     public void removeOpcao(int linha) {
         list.remove(linha);
+        
     }
 
     public TabelaModeloUsuario(List<Usuario> list) {
