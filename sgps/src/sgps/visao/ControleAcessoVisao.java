@@ -20,30 +20,29 @@ import sgps.controle.AnimalControle;
 import sgps.controle.UsuarioControle;
 import sgps.tabelaModelo.TabelaModeloUsuario;
 
-
 public class ControleAcessoVisao extends javax.swing.JInternalFrame {
-    
+
     /** Construtor do formulário AnimalVisao */
     public ControleAcessoVisao() {
         initComponents();
-       
+
         ConfigurarOpcoesMenu();
         ConfiguraFormulario("Manutenção de Animais");
-        MensagemRodape.setMensagemRodape(1,jpRodape, mensagemPadrao);
+        MensagemRodape.setMensagemRodape(1, jpRodape, mensagemPadrao);
         animalControle = new AnimalControle();
 
         //inicializa a jtable listando todos os usuários já cadastrados no sistema
 
         UsuarioControle usuarioControle = new UsuarioControle();
         Usuario us = usuarioControle.getInstanciaUsuario();
-        EntityManager em= usuarioControle.getEntityManager();
+        EntityManager em = usuarioControle.getEntityManager();
         List<Usuario> lus = new ArrayList<Usuario>();
         lus = usuarioControle.findAll();
         TabelaModeloUsuario tabelaUsuario = new TabelaModeloUsuario(lus);
         jtbListaUsuarios.setModel(tabelaUsuario);
-        
+
     }
-    
+
     /**
      * Método responsável pela configuração do Formulário (tamanho, título e
      * centralização)
@@ -60,22 +59,23 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         this.setLocation((screenSize.width - tamnhoForm.width) / 2,
                 (screenSize.height - tamnhoForm.height - 180) / 2);
     }
-    
+
     /**
      * Método responsável por criar as opções do Menu de Opções (JTree)
      */
     private void ConfigurarOpcoesMenu() {
-       root = new DefaultMutableTreeNode("Menu de Opções");
-        consulta = new DefaultMutableTreeNode("Consulta");
-        manutencao = new DefaultMutableTreeNode("Manutenção");
+        jtMenus.setModel(null);
+        root = new DefaultMutableTreeNode("Módulos do sistema");
+        paiCadastro = new DefaultMutableTreeNode("Cadastro");
+        filhoCadastroAnimal = new DefaultMutableTreeNode("Animal");
+        filhoCadastroUsuario = new DefaultMutableTreeNode("Usuario");
         arvoreOpcoesMenu = new MenusTreeModel(root);
-        arvoreOpcoesMenu.adicionaNoRoot(consulta);
-        arvoreOpcoesMenu.adicionaNoRoot(manutencao);
+        arvoreOpcoesMenu.adicionaNoRoot(paiCadastro);
+        arvoreOpcoesMenu.adicionaNo(paiCadastro, filhoCadastroAnimal);
+        arvoreOpcoesMenu.adicionaNo(paiCadastro, filhoCadastroUsuario);
         arvoreOpcoesMenu.adicionaNo(root, new DefaultMutableTreeNode("Sair"));
-
+        jtMenus.setModel(arvoreOpcoesMenu);
     }
-    
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -97,6 +97,8 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtbListaUsuarios = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -156,18 +158,18 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Cod. Usuário", "Usuário", "Tela "
+                "Tela"
             }
         ));
         jScrollPane3.setViewportView(jTable2);
 
-        jpSecundário.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 211, 600, 100));
+        jpSecundário.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 260, 100));
 
         jButton3.setText("Confirmar");
         jpSecundário.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, -1, -1));
@@ -219,6 +221,21 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
 
         jpSecundário.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 600, 100));
 
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Cod. Usuário", "Usuário"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable3);
+
+        jpSecundário.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 211, 260, 100));
+
         jpPrincipal.add(jpSecundário, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,7 +246,7 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         pack();
@@ -238,14 +255,12 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         /*
          * NivelAcesso ne = new NivelAcesso();
-    entityManager.persist(ne);
-    int index = jTable1.getSelectedRow();
-    ne.setCodFunc(funcionarioList.get(index).getCodFuncionario());
-    ne.setNomeModulo(jTree1.getLastSelectedPathComponent().toString());
-    nivelAcessoList.add(ne);
+        entityManager.persist(ne);
+        int index = jTable1.getSelectedRow();
+        ne.setCodFunc(funcionarioList.get(index).getCodFuncionario());
+        ne.setNomeModulo(jTree1.getLastSelectedPathComponent().toString());
+        nivelAcessoList.add(ne);
          */
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -253,21 +268,16 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
 }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jtbListaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbListaUsuariosMouseClicked
-
-       
     }//GEN-LAST:event_jtbListaUsuariosMouseClicked
 
     private void selecionaMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selecionaMenu
 
-     String selecionado;
-        if ((jtMenus.getSelectionPath() != null) && (jtMenus.isEnabled()) ) {
+        String selecionado;
+        if ((jtMenus.getSelectionPath() != null) && (jtMenus.isEnabled())) {
             if (evt.getClickCount() == 2) {
                 selecionado = jtMenus.getLastSelectedPathComponent().toString();
                 if (selecionado.equals("Consulta")) {
-
-
                 } else if (selecionado.equals("Manutenção")) {
-
                 } else if (selecionado.equals("Sair")) {
                     dispose();
                 }
@@ -276,12 +286,11 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
             // JOptionPane.showMessageDialog(null, "Quantidade de clicks " + evt.getClickCount());
         }
     }//GEN-LAST:event_selecionaMenu
-              
     /**
      * Método que controla as opções selecionadas com o duplo clique do
      * mouse, no Menu de Opções
      * @param evt
-     */            
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -292,7 +301,9 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JLabel jlTextoMsgFeedback;
     private javax.swing.JPanel jpPrincipal;
     private javax.swing.JPanel jpRodape;
@@ -300,13 +311,11 @@ public class ControleAcessoVisao extends javax.swing.JInternalFrame {
     private javax.swing.JTree jtMenus;
     private javax.swing.JTable jtbListaUsuarios;
     // End of variables declaration//GEN-END:variables
-    
     /** Variáveis para manipulação do Menu de Opções (Jtree)   */
-    private DefaultMutableTreeNode root, consulta, manutencao;
+    private DefaultMutableTreeNode root, paiCadastro, filhoCadastroAnimal, filhoCadastroUsuario;
     private MenusTreeModel arvoreOpcoesMenu;
     String mensagemPadrao = "Nenhuma mensagem foi gerada.";
     Animal animal;
     AnimalControle animalControle;
-    
 }
 
