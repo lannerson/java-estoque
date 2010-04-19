@@ -24,8 +24,8 @@ import sgps.util.VerificaFrame;
 public class MenuPrincipalVisao extends javax.swing.JFrame {
 
     /** Construtor do formulário  */
-    public MenuPrincipalVisao() {
-        
+    public MenuPrincipalVisao() { 
+
         initComponents();
         
 
@@ -52,7 +52,6 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         String nomeImagem = "Logo.png";
         dpPrincipal = new JDesktopPanePersonalizado(caminhoImagem, nomeImagem);
         jpBarraBotoes = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         mbMenu = new javax.swing.JMenuBar();
         jmCadastro = new javax.swing.JMenu();
         miCadAnimal = new javax.swing.JMenuItem();
@@ -110,24 +109,15 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
 
         jpBarraBotoes.setBackground(new java.awt.Color(173, 216, 230));
 
-        jButton2.setText("jButton2");
-        jButton2.setEnabled(false);
-
         javax.swing.GroupLayout jpBarraBotoesLayout = new javax.swing.GroupLayout(jpBarraBotoes);
         jpBarraBotoes.setLayout(jpBarraBotoesLayout);
         jpBarraBotoesLayout.setHorizontalGroup(
             jpBarraBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBarraBotoesLayout.createSequentialGroup()
-                .addContainerGap(332, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(152, 152, 152))
+            .addGap(0, 554, Short.MAX_VALUE)
         );
         jpBarraBotoesLayout.setVerticalGroup(
             jpBarraBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpBarraBotoesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 55, Short.MAX_VALUE)
         );
 
         jpFundoPrincipal.add(jpBarraBotoes, java.awt.BorderLayout.PAGE_START);
@@ -299,14 +289,13 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
                 case 3:
                      jmConfroleAcessoUsuario.setEnabled(acesso.getFlagtipoacesso());
                      break;
-            }
+     }
         }
      }
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dpPrincipal;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jlUsuarioLogado;
     private javax.swing.JMenu jmAjuda;
     public javax.swing.JMenu jmCadastro;
@@ -332,6 +321,6 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     ControleAcessoVisao controleAcessoVisao;
     AcessoControle acessoControle = new AcessoControle();
     Telasistema tela = new Telasistema();
-
+    
 
 }
