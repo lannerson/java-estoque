@@ -12,12 +12,10 @@ package sgps.visao;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import sgps.classeMapeada.Acessousuario;
 import sgps.classeMapeada.Telasistema;
 import sgps.controle.*;
-import sgps.visao.MenuPrincipalVisao;
 
 /**
  *
@@ -34,8 +32,7 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         this.toFront();
     }
 
-     public LoginVisao() {
-
+    public LoginVisao() {
     }
 
     /** This method is called from within the constructor to
@@ -121,41 +118,39 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         System.exit(0);
 }//GEN-LAST:event_jbSairActionPerformed
 
-   public List<String> retornaUsuarioSenha(){
+    public List<String> retornaUsuarioSenha() {
         List<String> usuarioSenhaList = new ArrayList<String>();
-         usuarioSenhaList.add(tfLogin.getText());
-         usuarioSenhaList.add(tfLogin.getText());
+        usuarioSenhaList.add(tfLogin.getText());
+        usuarioSenhaList.add(tfLogin.getText());
         return usuarioSenhaList;
-
-   }
-
+    }
 
     private void jbOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkActionPerformed
         AcessoControle acessoControle = new AcessoControle();
         List<Acessousuario> listaAcesso = new ArrayList<Acessousuario>();
-        Telasistema tela = new Telasistema();        
+        Telasistema tela = new Telasistema();
         if (acessoControle.verificaLogin(tfLogin.getText(), tfSenha.getText())) {
             JOptionPane.showMessageDialog(null, "usuario habilitado");
-         LoginVisao loginVisao = new LoginVisao();
-                listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
-        for (Acessousuario acesso : listaAcesso) {
-            tela = acesso.getTelasistema();
-            switch (tela.getIdtelasistema()) {
-                case 1:
-                   principal.miCadAnimal.setEnabled(acesso.getFlagtipoacesso());
-                case 2:
-                    principal.miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
-                case 3:
-                     principal.jmConfroleAcessoUsuario.setEnabled(acesso.getFlagtipoacesso());
-                     break;
+            LoginVisao loginVisao = new LoginVisao();
+            listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
+            for (Acessousuario acesso : listaAcesso) {
+                tela = acesso.getTelasistema();
+                switch (tela.getIdtelasistema()) {
+                    case 1:
+                        principal.miCadAnimal.setEnabled(acesso.getFlagtipoacesso());
+                    case 2:
+                        principal.miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
+                    case 3:
+                        principal.jmConfroleAcessoUsuario.setEnabled(acesso.getFlagtipoacesso());
+                        break;
+                }
             }
-        }
-            
-            this.dispose();
-           
+
+            dispose();
+
         } else {
             JOptionPane.showMessageDialog(null, "usuário ou senha incorreto");
-           
+
         }
 
 
@@ -173,5 +168,4 @@ public class LoginVisao extends javax.swing.JInternalFrame {
     private javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
     MenuPrincipalVisao principal;
-    public boolean flagOk = false;
 }
