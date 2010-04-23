@@ -5,10 +5,10 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
     </Property>
-    <Property name="closable" type="boolean" value="true"/>
-    <Property name="iconifiable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Identica&#xe7;&#xe3;o do Usu&#xe1;rio"/>
-    <Property name="selected" type="boolean" value="true"/>
+    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="tfLogin"/>
+    </Property>
     <Property name="visible" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>

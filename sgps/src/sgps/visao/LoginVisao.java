@@ -55,14 +55,8 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         tfSenha = new javax.swing.JPasswordField();
 
         setBackground(java.awt.Color.lightGray);
-        setClosable(true);
-        setIconifiable(true);
         setTitle("Identicação do Usuário");
-        try {
-            setSelected(true);
-        } catch (java.beans.PropertyVetoException e1) {
-            e1.printStackTrace();
-        }
+        setNextFocusableComponent(tfLogin);
         setVisible(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -131,7 +125,7 @@ public class LoginVisao extends javax.swing.JInternalFrame {
         Telasistema tela = new Telasistema();
         if (acessoControle.verificaLogin(tfLogin.getText(), tfSenha.getText())) {
             JOptionPane.showMessageDialog(null, "usuario habilitado");
-            LoginVisao loginVisao = new LoginVisao();
+            principal.habilitaMenu();
             listaAcesso = acessoControle.listaDeAcesso(tfLogin.getText(), tfSenha.getText());
             for (Acessousuario acesso : listaAcesso) {
                 tela = acesso.getTelasistema();

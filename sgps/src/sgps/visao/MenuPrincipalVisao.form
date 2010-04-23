@@ -43,6 +43,14 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fazer logoof"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmMovimentacao">
@@ -130,12 +138,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jpFundoPrincipal" alignment="0" pref="554" max="32767" attributes="0"/>
+          <Component id="jpFundoPrincipal" alignment="0" pref="552" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jpFundoPrincipal" alignment="0" pref="349" max="32767" attributes="0"/>
+          <Component id="jpFundoPrincipal" alignment="0" pref="347" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -200,12 +208,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="dpPrincipal" alignment="0" pref="554" max="32767" attributes="0"/>
+                  <Component id="dpPrincipal" alignment="0" pref="552" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="dpPrincipal" alignment="0" pref="272" max="32767" attributes="0"/>
+                  <Component id="dpPrincipal" alignment="0" pref="270" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -247,7 +255,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="554" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="552" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

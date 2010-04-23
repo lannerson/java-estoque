@@ -19,6 +19,7 @@ import sgps.classeMapeada.Acessousuario;
 import sgps.classeMapeada.Telasistema;
 import sgps.controle.AcessoControle;
 import sgps.util.JDesktopPanePersonalizado;
+
 import sgps.util.VerificaFrame;
 
 public class MenuPrincipalVisao extends javax.swing.JFrame {
@@ -27,17 +28,10 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     public MenuPrincipalVisao() { 
 
         initComponents();
-        
+        desabilitaMenu();
 
     }
 
-
-    public MenuPrincipalVisao(List<Acessousuario> listaAcesso) {
-
-        initComponents();
-        habilitaMenu();
-
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -56,6 +50,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         jmCadastro = new javax.swing.JMenu();
         miCadAnimal = new javax.swing.JMenuItem();
         miCadUsuario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jmMovimentacao = new javax.swing.JMenu();
         jmConsultas = new javax.swing.JMenu();
         jmRelatorio = new javax.swing.JMenu();
@@ -98,11 +93,11 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         jpAreaTrabalho.setLayout(jpAreaTrabalhoLayout);
         jpAreaTrabalhoLayout.setHorizontalGroup(
             jpAreaTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
         );
         jpAreaTrabalhoLayout.setVerticalGroup(
             jpAreaTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+            .addComponent(dpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
         jpFundoPrincipal.add(jpAreaTrabalho, java.awt.BorderLayout.CENTER);
@@ -113,7 +108,7 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         jpBarraBotoes.setLayout(jpBarraBotoesLayout);
         jpBarraBotoesLayout.setHorizontalGroup(
             jpBarraBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGap(0, 552, Short.MAX_VALUE)
         );
         jpBarraBotoesLayout.setVerticalGroup(
             jpBarraBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,6 +135,14 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
             }
         });
         jmCadastro.add(miCadUsuario);
+
+        jMenuItem1.setText("Fazer logoof");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jmCadastro.add(jMenuItem1);
 
         mbMenu.add(jmCadastro);
 
@@ -182,11 +185,11 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpFundoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+            .addComponent(jpFundoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpFundoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+            .addComponent(jpFundoPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -248,6 +251,12 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jmConfroleAcessoUsuarioActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    desabilitaMenu();
+    dpPrincipal.add(new LoginVisao(this));
+    
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -269,33 +278,30 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
     }
 
      public void habilitaMenu() {
-         List<Acessousuario> listaAcesso = new ArrayList<Acessousuario>();
-         List<String> usuarioSenha = new ArrayList<String>();
-         LoginVisao loginVisao = new LoginVisao();
-         usuarioSenha = loginVisao.retornaUsuarioSenha();
-         String usuario;
-         String senha;
-         usuario  = usuarioSenha.get(0);
-         senha  = usuarioSenha.get(1);
-                AcessoControle acessoControle = new AcessoControle();
-                listaAcesso = acessoControle.listaDeAcesso(usuario, senha);
-        for (Acessousuario acesso : listaAcesso) {
-            tela = acesso.getTelasistema();
-            switch (tela.getIdtelasistema()) {
-                case 1:
-                   miCadAnimal.setEnabled(acesso.getFlagtipoacesso());
-                case 2:
-                     miCadUsuario.setEnabled(acesso.getFlagtipoacesso());
-                case 3:
-                     jmConfroleAcessoUsuario.setEnabled(acesso.getFlagtipoacesso());
-                     break;
+         jmAjuda.setEnabled(true);
+         jmCadastro.setEnabled(true);
+         jmConfroleAcessoUsuario.setEnabled(true);
+         jmConsultas.setEnabled(true);
+         jmFinalizarSistema.setEnabled(true);
+         jmMovimentacao.setEnabled(true);
+         jmRelatorio.setEnabled(true);
+         jmSistema.setEnabled(true);
      }
-        }
+     public void desabilitaMenu() {
+         jmAjuda.setEnabled(false);
+         jmCadastro.setEnabled(false);
+         jmConfroleAcessoUsuario.setEnabled(false);
+         jmConsultas.setEnabled(false);
+         jmFinalizarSistema.setEnabled(false);
+         jmMovimentacao.setEnabled(false);
+         jmRelatorio.setEnabled(false);
+         jmSistema.setEnabled(false);
      }
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dpPrincipal;
     private javax.swing.JButton jButton1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel jlUsuarioLogado;
     private javax.swing.JMenu jmAjuda;
     public javax.swing.JMenu jmCadastro;
@@ -318,9 +324,9 @@ public class MenuPrincipalVisao extends javax.swing.JFrame {
      */
     UsuarioVisao usuarioVisao;
     AnimalVisao animalVisao;
+    LoginVisao login = new LoginVisao();
     ControleAcessoVisao controleAcessoVisao;
-    AcessoControle acessoControle = new AcessoControle();
-    Telasistema tela = new Telasistema();
+    
     
 
 }
